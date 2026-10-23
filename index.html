@@ -68,7 +68,7 @@ header{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent}
 header .wrap{max-width:min(1480px,calc(50vw + 590px))}
 .nav{display:flex;align-items:center;gap:22px;height:76px;position:relative}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);letter-spacing:-.02em;font-weight:600;font-size:16.5px;text-decoration:none;white-space:nowrap}
-.brand img{height:44px;width:auto;display:block;flex:none}
+.brand img{height:21px;width:auto;display:block;flex:none}
 .brand span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);font-weight:400;padding-left:11px;border-left:1px solid rgba(255,255,255,.3)}
 .navlinks{display:flex;gap:3px;margin-inline:auto;font-size:13.5px;color:#fff}
 .navlinks a{color:#fff;text-decoration:none;transition:color .2s,background .2s;padding:9px 15px;border-radius:999px;white-space:nowrap}
@@ -88,17 +88,18 @@ header.open .menu-btn .i-x{display:block}
   header.open .navlinks{display:flex}
   .navlinks a{padding:13px 16px;border-radius:10px}
 }
-@media (max-width:620px){.brand img{height:34px}.nav{gap:12px;height:66px}.nav .btn.solid{padding:9px 15px;font-size:12px}}
+@media (max-width:620px){.brand img{height:20px}.nav{gap:12px;height:66px}.nav .btn.solid{padding:9px 15px;font-size:12px}}
 @media (max-width:440px){
+  .brand img{height:18px}
   .nav .btn.solid{display:none}
   .menu-btn{margin-left:auto}
-  .navlinks .nav-cta{display:flex;justify-content:center;margin-top:6px;background:var(--accent);color:#120600;font-weight:600}
-  .navlinks .nav-cta:hover{background:var(--accent-hi);color:#120600}
+  .navlinks .nav-cta{display:flex;justify-content:center;margin-top:6px;background:var(--accent);color:#fff;font-weight:600}
+  .navlinks .nav-cta:hover{background:var(--accent-hi);color:#fff}
 }
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,background .2s,border-color .2s,color .2s,box-shadow .2s;white-space:nowrap}
-.btn.solid{background:var(--accent);color:#120600;font-weight:600}
+.btn.solid{background:var(--accent);color:#fff;font-weight:600}
 .btn.solid:hover{transform:translateY(-1px);background:var(--accent-hi);box-shadow:0 8px 26px rgba(255,106,31,.3)}
 .btn.ghost{border-color:var(--line);color:var(--fg)}
 .btn.ghost:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
@@ -118,17 +119,18 @@ header.open .menu-btn .i-x{display:block}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;border-top:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start}
-.hero::after{content:"";position:absolute;left:50%;top:-240px;width:min(1100px,150vw);aspect-ratio:1/.55;transform:translateX(-50%);pointer-events:none;background:radial-gradient(ellipse at center,rgba(255,106,31,.18),rgba(255,106,31,0) 66%)}
-.hero .wrap{position:relative;z-index:1;text-align:center;padding-block:clamp(150px,30vh,340px) clamp(48px,8vh,110px)}
+.hero .wrap{position:relative;z-index:1;text-align:left;max-width:none;width:100%;margin-inline:0;padding-inline:clamp(20px,3.5vw,56px);padding-block:clamp(150px,30vh,340px) clamp(48px,8vh,110px);text-shadow:0 2px 18px rgba(0,0,0,.45)}
 .pill{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px 6px 8px;font-size:12px;color:#fff;margin-bottom:32px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.25);transition:border-color .25s,background .25s}
 .pill:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.16)}
 .pill b{background:var(--accent);color:#140700;font-weight:600;border-radius:999px;padding:2px 9px;font-size:10.5px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
 h1{font-size:clamp(2rem,4.8vw,3.4rem);max-width:34ch;margin-inline:auto;line-height:1.06}
 h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-color:var(--accent)}
-.hero p{margin-inline:auto}
-.hero .p1{margin-top:30px;color:#d4d4db;font-size:clamp(1rem,1.5vw,1.18rem);max-width:84ch;line-height:1.6}
+.hero h1{margin-inline:0;max-width:min(95vw,1120px);font-size:clamp(2.2rem,4.9vw,3.6rem)}
+.hero .pill{margin-inline:0}
+.hero p{margin-inline:0}
+.hero .p1{margin-top:30px;color:#eaeaef;font-size:clamp(1rem,1.5vw,1.18rem);max-width:min(94vw,760px);line-height:1.6}
 .hero .p2{margin-top:18px;color:var(--muted);font-size:15px;max-width:76ch;line-height:1.65}
-.hero .cta-row{justify-content:center;margin-top:36px}
+.hero .cta-row{justify-content:flex-start;margin-top:36px}
 
 /* ---------- bento ---------- */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
@@ -146,18 +148,18 @@ h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offs
 .cred-portrait{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5;background:#0a0a0b;box-shadow:0 30px 80px rgba(0,0,0,.5)}
 .cred-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
 .cred-lead .eyebrow{margin-bottom:18px}
-.cred-statement{font-family:var(--display);font-size:clamp(1.45rem,2.7vw,2.25rem);line-height:1.26;letter-spacing:-.02em;color:var(--fg);margin:0;max-width:26ch}
+.cred-statement{font-family:var(--display);font-size:clamp(1.45rem,2.7vw,2.25rem);line-height:1.26;letter-spacing:-.02em;color:var(--fg);margin:0;max-width:42ch}
 .cred-statement b{color:var(--accent)}
 /* proof block */
-.cred-proof{margin-top:clamp(56px,8vw,100px);padding-top:clamp(44px,6vw,66px);border-top:1px solid var(--line-soft)}
+.cred-proof{margin-top:0}
 @media (min-width:900px){.cred-h2{white-space:nowrap}}
 .cred-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(32px,4vw,46px)}
-.ccard{background:linear-gradient(140deg,var(--accent),var(--accent-hi));border-radius:16px;padding:24px;color:#160800;transition:transform .25s,box-shadow .25s}
-.ccard:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,106,31,.28)}
-.ccard .cico{width:36px;height:36px;border-radius:10px;background:rgba(20,8,0,.14);border:1px solid rgba(20,8,0,.22);display:grid;place-items:center;color:#140700}
+.ccard{background:var(--surface);border:1px solid var(--line-soft);border-radius:16px;padding:24px;color:var(--fg);transition:transform .25s,border-color .25s,background .25s}
+.ccard:hover{transform:translateY(-3px);border-color:var(--accent-line);background:var(--surface-hi)}
+.ccard .cico{width:36px;height:36px;border-radius:10px;background:rgba(255,106,31,.08);border:1px solid var(--accent-line);display:grid;place-items:center;color:var(--accent)}
 .ccard .cico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.ccard .ck{font-family:var(--display);font-size:clamp(1.35rem,2vw,1.75rem);letter-spacing:-.03em;line-height:1.05;margin-top:22px;color:#160800}
-.ccard .cv{color:rgba(20,8,0,.8);font-size:13.5px;line-height:1.5;margin-top:9px}
+.ccard .ck{font-family:var(--display);font-size:clamp(1.35rem,2vw,1.75rem);letter-spacing:-.03em;line-height:1.05;margin-top:22px;color:var(--fg)}
+.ccard .cv{color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:9px}
 .ccard.wide{grid-column:span 2;display:flex;gap:16px;align-items:center}
 .ccard.wide .cico{flex:none}
 .ccard.wide .cv{margin-top:0;font-size:14.5px}
@@ -280,15 +282,16 @@ h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offs
 .award .ico{width:32px;height:32px;border-radius:9px}
 
 /* ---------- final + footer ---------- */
-.final{text-align:center;position:relative;overflow:hidden}
-.final::after{content:"";position:absolute;left:50%;bottom:-340px;width:min(1000px,140vw);aspect-ratio:1/.6;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,106,31,.16),transparent 70%);pointer-events:none}
-.final .wrap{position:relative;z-index:1}
+.final{text-align:center;position:relative;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+.final.hasbg .bgfx::after{background:none}
+.final .wrap{position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,.6)}
 .final .cta-row{justify-content:center;margin-top:34px}
+@media (min-width:1100px){.oneline{white-space:nowrap}}
 .final .lede{margin-inline:auto}
 footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 40px;color:var(--muted);font-size:13.5px}
 .foot-top{display:grid;grid-template-columns:1.25fr 2fr;gap:clamp(34px,5vw,72px);align-items:start}
 .foot-name{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;letter-spacing:-.02em;color:#fff;font-size:1.08rem}
-.foot-name img{height:30px;width:auto;display:block}
+.foot-name img{height:18px;width:auto;display:block}
 .foot-name span{color:var(--dim);font-weight:400;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
 .tagline{font-family:var(--display);color:#d2d2d9;font-size:clamp(1.05rem,1.8vw,1.3rem);letter-spacing:-.02em;margin:14px 0 24px;max-width:32ch;line-height:1.3}
 .foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
@@ -311,6 +314,12 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .lite .tcard .q{color:#211c14}
 .lite .clamp .body{color:#5d584f}
 .lite .trigger:hover{background:rgba(255,106,31,.07)}
+.charcoal{
+  --bg:#17181b;--surface:#1e1f23;--surface-hi:#26272c;
+  --line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);
+  --fg:#f5f5f7;--muted:#a4a4ac;--dim:#74747c;
+  background:var(--bg);color:var(--fg)
+}
 .lite .stat .d{color:#4b463d}
 .lite .stat:hover{background:linear-gradient(180deg,rgba(255,106,31,.06),transparent)}
 
@@ -346,8 +355,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .bgfx::before{content:"";position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center;opacity:var(--op,.62)}
 .bgfx::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.46) 42%,rgba(0,0,0,.84))}
 .hero.hasbg .bgfx::before{opacity:.66}
-.hero.hasbg .bgfx::after{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.38) 38%,rgba(0,0,0,.82))}
+.hero.hasbg .bgfx::after{background:none}
 .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:0}
 .case-img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;border:1px solid var(--line-soft);margin-bottom:6px}
 
 /* ---------- Results carousel ---------- */
@@ -366,6 +376,11 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .slide-media{position:relative;min-height:100%;background:#000}
 .slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}
 .slide-media::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,12,.55),transparent 34%)}
+.fastcard{display:grid;grid-template-columns:1.25fr .85fr;align-items:stretch}
+.fastcard-body{padding:clamp(26px,3vw,38px)}
+.fastcard-media{position:relative;min-height:100%;background:#120600}
+.fastcard-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}
+@media (max-width:760px){.fastcard{grid-template-columns:1fr}.fastcard-media{min-height:220px;order:-1}}
 .carousel-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
 .cbtn{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
 .cbtn:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
@@ -473,14 +488,15 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .ecard-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,12,.55),transparent 42%)}
 .ecard-body{position:relative;padding:42px 28px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;flex:1}
 .ecard-num{position:absolute;left:50%;top:-18px;transform:translateX(-50%);z-index:4;width:50px;height:38px;background:var(--accent);color:#140700;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.06em;display:grid;place-items:center;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
-.ecard-head{display:flex;flex-direction:column;align-items:center;width:100%;min-height:302px}
-.ecard-rule{width:1px;height:30px;background:var(--accent);margin:2px 0 16px}
-.ecard-ico{width:30px;height:30px;color:var(--accent);margin-bottom:16px}
+.ecard-head{display:flex;flex-direction:column;align-items:center;width:100%;min-height:200px}
+.ecard-rule{width:1px;height:26px;background:var(--accent);margin:2px 0 10px}
+.ecard-ico{width:30px;height:30px;color:var(--accent);margin-bottom:10px}
 .ecard-ico svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .ecard-badge{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.ecard-media .ecard-badge{position:absolute;left:50%;bottom:46px;transform:translateX(-50%);z-index:3;margin:0;white-space:nowrap;background:var(--accent);color:#140700;font-weight:600;padding:6px 12px;border-radius:7px;box-shadow:0 5px 16px rgba(0,0,0,.45)}
 .ecard h3{font-family:var(--display);font-size:clamp(1.25rem,1.7vw,1.5rem);letter-spacing:-.01em;margin:0 0 6px;color:var(--fg)}
 .ecard .efor{color:var(--muted);font-size:13.5px;line-height:1.5;margin:0;max-width:34ch}
-.ecard-detail{text-align:left;width:100%;border-top:1px solid var(--accent-line);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.ecard-detail{text-align:left;width:100%;border-top:1px solid var(--accent-line);padding-top:11px;display:flex;flex-direction:column;gap:9px}
 .ecard-detail p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
 .ecard-detail b{color:var(--fg)}
 @media (max-width:620px){.eng-track{grid-auto-columns:minmax(260px,86%)}.ecard-head{min-height:0}.ecard-body{padding:40px 22px 26px}}
@@ -522,7 +538,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#top"><img src="https://cdn.katalyst-crm.com/a/31efe6d5-5381-4087-9e67-0bbefed82aeb" alt="Ronnie Barnard"> <span>Technology Initiative Advisor</span></a>
+    <a class="brand" href="#top"><img src="https://cdn.katalyst-crm.com/a/f1ea4d15-367d-44e6-758f-300e7c6cac35" alt="Ronnie Barnard"></a>
     <nav class="navlinks">
       <a href="#how">How I Work</a>
       <a href="#results">Results</a>
@@ -543,8 +559,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <!-- HERO -->
   <section class="hero hasbg">
     <div class="bgfx">
-      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_35bf64fa-faab-4b63-a106-701e1f06b3ec.png">
-        <source src="https://cdn.katalyst-crm.com/a/2a7a5474-6d47-c90c-8423-80e934b5dd43" type="video/mp4">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto">
+        <source src="https://cdn.katalyst-crm.com/a/fb3aa6a7-8f8b-d212-1365-8bd7a6905447" type="video/mp4">
       </video>
     </div>
     <div class="wrap">
@@ -558,6 +574,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     </div>
   </section>
 
+  <!-- GALLERY STRIP -->
+  <section id="gallery" aria-label="Photo gallery">
+    <div class="gallery">
+      <div class="gtrack"><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div></div>
+    </div>
+  </section>
+
   <section>
     <div class="wrap strip rv">Independent technology judgment. <em>No predetermined solution to sell.</em></div>
   </section>
@@ -565,14 +588,19 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <!-- CREDIBILITY -->
   <section>
     <div class="wrap band">
-      <div class="cred-intro">
-        <div class="cred-portrait rv"><img src="https://cdn.katalyst-crm.com/a/d6992164-a6fc-25d3-d6e5-70fbad1d93e6" alt="Ronnie Barnard" loading="lazy"></div>
+      <div class="cred-intro" style="display:block;text-align:center">
         <div class="cred-lead rv">
-          <p class="eyebrow">Ronnie Barnard</p>
-          <p class="cred-statement">I’m an independent Technology Initiative Advisor with more than <b>30 years</b> of experience, from hands-on engineering to the CTO and CIO seat. Leaders bring me in when the stakes are high, the path forward is unclear, or an important initiative isn’t delivering.</p>
+          <p class="eyebrow" style="display:inline-block">Ronnie Barnard</p>
+          <p class="cred-statement type" style="margin-inline:auto">I’m an independent Technology Initiative Advisor with more than <b>30 years</b> of experience, from hands-on engineering to the CTO and CIO seat. Leaders bring me in when the stakes are high, the path forward is unclear, or an important initiative isn’t delivering.</p>
         </div>
       </div>
+    </div>
+  </section>
 
+
+  <!-- CREDIBILITY PROOF -->
+  <section style="border-top:0">
+    <div class="wrap band" style="padding-top:clamp(18px,2.5vw,36px)">
       <div class="cred-proof rv">
         <h2 class="h2 type cred-h2" style="text-align:center;max-width:none;margin-inline:auto">Trusted when the stakes are high</h2>
         <div class="cred-cards">
@@ -587,8 +615,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     </div>
   </section>
 
+
   <!-- THE REAL PROBLEM -->
-  <section id="problem" class="lite">
+  <section id="problem" class="charcoal">
     <div class="wrap band">
       <p class="eyebrow rv" style="text-align:center">The real problem</p>
       <div class="problem-head rv">
@@ -624,7 +653,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         <button class="more" data-clamp="cl1">Read more <span class="chev">▾</span></button>
       </div>
 
-      <p class="h2 rv" style="margin:clamp(56px,7vw,88px) auto 0;max-width:34ch;text-align:center;font-family:var(--display);letter-spacing:-.035em;line-height:1.04">The technology problem you see is rarely the problem you need to solve.</p>
+      <div class="rv" style="margin:clamp(56px,7vw,88px) 0 0;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-radius:20px;padding:clamp(40px,6vw,66px) clamp(26px,5vw,56px)">
+        <p class="h2" style="max-width:30ch;margin-inline:auto;text-align:center;font-family:var(--display);letter-spacing:-.035em;line-height:1.08;color:#160800">The technology problem you see is rarely the problem you need to solve.</p>
+      </div>
 
       <div class="stats">
         <div class="stat rv">
@@ -651,7 +682,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   </section>
 
   <!-- WHAT YOU GET BACK -->
-  <section id="value" class="lite">
+  <section id="value" class="charcoal">
     <div class="wrap band">
       <p class="eyebrow rv">What you get back</p>
       <div class="split">
@@ -733,7 +764,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
       </div>
 
       <div class="why-grid rv">
-        <div class="why-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_072622_db65ca8d-43e6-495b-994d-956558fbdfa6.png" alt="Senior technology executive" loading="lazy"></div>
+        <div class="why-media"><img src="https://cdn.katalyst-crm.com/a/d6992164-a6fc-25d3-d6e5-70fbad1d93e6" alt="Senior technology executive" loading="lazy"></div>
         <div class="acc">
         <div class="item open">
           <button class="trigger" aria-expanded="true"><span class="idx">01</span><span class="ttl"><span class="t">You stop paying for guesses</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
@@ -795,7 +826,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
                   <div><dt>The result</dt><dd>Onboarding fell from about 31 days to under 7, with straightforward cases processed in about 30 minutes. Monthly revenue grew to roughly 16 times its starting level. The technology didn’t create that growth alone. It removed the ceiling on it.</dd></div>
                 </dl>
               </div>
-              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_884e83eb-038d-4cba-851f-f82940725a44.png" alt="Financial services onboarding transformation" loading="lazy"></div>
+              <div class="slide-media"><img src="https://cdn.katalyst-crm.com/a/2c22e70a-23f3-4edb-448d-8d9026efd4f3" alt="Financial services onboarding transformation" loading="lazy" style="object-position:72% center"></div>
             </article>
 
             <article class="slide" aria-roledescription="slide" aria-label="2 of 3">
@@ -810,7 +841,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
                   <div><dt>The result</dt><dd>Customers could be onboarded in parallel. The company opened a U.S. operation, built a platform serving more than 10,000 users, and grew annual revenue from about $1.2 million to $3.8 million over four years.</dd></div>
                 </dl>
               </div>
-              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_16ffc624-60c2-4d1f-8880-f7b9275fe859.png" alt="Compliance technology scaling" loading="lazy"></div>
+              <div class="slide-media"><img src="https://cdn.katalyst-crm.com/a/57491001-8711-5082-3781-7bd7e12e96d6" alt="Compliance technology scaling" loading="lazy"></div>
             </article>
 
             <article class="slide" aria-roledescription="slide" aria-label="3 of 3">
@@ -825,7 +856,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
                   <div><dt>The result</dt><dd>Authorized staff can ask questions by text or voice and get answers in real time. One analysis that took an experienced employee about a day and a half was reproduced by the system in about 20 seconds.</dd></div>
                 </dl>
               </div>
-              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_ca305c2a-73c9-405e-a110-3fa14b5a2ee8.png" alt="State government secure AI layer" loading="lazy"></div>
+              <div class="slide-media"><img src="https://cdn.katalyst-crm.com/a/adfe6e19-2ab5-2b0b-d49b-694e07ad4eaa" alt="State government secure AI layer" loading="lazy"></div>
             </article>
 
           </div>
@@ -843,11 +874,11 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         </div>
       </div>
 
-      <div class="card rv" style="margin-top:28px;padding:30px;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
+      <div class="card rv" style="margin-top:28px;padding:clamp(30px,4vw,48px);background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
         <span class="ico" style="background:rgba(20,8,0,.14);border-color:rgba(20,8,0,.28);color:#140700"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
-        <div class="k" style="font-size:1.4rem;color:#160800">Sometimes the answer comes fast.</div>
-        <p class="v" style="font-size:15px;line-height:1.65;color:rgba(20,8,0,.82)">A founding team hit a wall before launch. Their AI product kept giving confused, made-up answers, and nothing they tried fixed it. Thirty minutes into our first call, the cause was clear: the AI’s core instructions were being rewritten in the middle of each conversation. They launched a few weeks later.</p>
-        <p class="mono-note" style="margin-top:16px;color:rgba(20,8,0,.7)">Most engagements take longer. The discipline is the same.</p>
+        <div class="k" style="font-size:clamp(1.6rem,2.4vw,2rem);color:#160800">Sometimes the answer comes fast.</div>
+        <p class="v" style="font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.6;color:rgba(20,8,0,.84);max-width:78ch">A founding team hit a wall before launch. Their AI product kept giving confused, made-up answers, and nothing they tried fixed it. Thirty minutes into our first call, the cause was clear: the AI’s core instructions were being rewritten in the middle of each conversation. They launched a few weeks later.</p>
+        <p class="mono-note" style="margin-top:18px;font-size:13px;color:rgba(20,8,0,.72)">Most engagements take longer. The discipline is the same.</p>
       </div>
     </div>
   </section>
@@ -911,11 +942,10 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <section id="how" class="hasbg showcase">
     <div class="bgfx" style="--img:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_fb165c3f-2e21-4b04-ba12-799e2f06af1e.png')"></div>
     <div class="wrap band">
-      <p class="eyebrow rv" style="text-align:center">The Technology Unlock Framework</p>
+      <p class="eyebrow rv" style="text-align:center">How I work</p>
       <div class="fw-head">
-        <h2 class="h2 type">How I work</h2>
-        <p class="sub" style="margin-top:18px">Five steps from uncertainty to measurable value.</p>
-        <p class="lede" style="margin-top:22px">The Technology Unlock Framework is a disciplined sequence for initiatives that are underperforming, overcomplicated, or not delivering the value expected. It starts with the business outcome you’re trying to reach, not with a technology someone has already chosen.</p>
+        <h2 class="h2 type">Five steps from uncertainty to measurable value.</h2>
+        <p class="lede" style="margin-top:22px;color:#fff">The Technology Unlock Framework is a disciplined sequence for initiatives that are underperforming, overcomplicated, or not delivering the value expected. It starts with the business outcome you’re trying to reach, not with a technology someone has already chosen.</p>
       </div>
 
       <div class="fw-grid rv">
@@ -1035,13 +1065,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
           </div>
         </article>
         <article class="ecard feat">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_eedf669c-ad26-46e1-9d6b-b08455004544.png" alt="Technology Initiative Diagnostic + Direction" loading="lazy"></div>
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_eedf669c-ad26-46e1-9d6b-b08455004544.png" alt="Technology Initiative Diagnostic + Direction" loading="lazy"><span class="ecard-badge">Recommended starting point</span></div>
           <div class="ecard-body">
             <span class="ecard-num">02</span>
             <div class="ecard-head">
               <span class="ecard-rule"></span>
               <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <span class="ecard-badge">Recommended starting point</span><h3>Technology Initiative Diagnostic + Direction</h3>
+              <h3>Technology Initiative Diagnostic + Direction</h3>
               <p class="efor">For: Leaders who know they need to act and want to act on the right thing.</p>
             </div>
             <div class="ecard-detail"><p><b>What happens:</b> Everything in the Diagnostic, plus a reframed problem statement, options, a recommended direction, priorities, decision points, sequencing, ownership, and initial implementation guidance.</p><p><b>You leave with:</b> What’s really wrong, what should change, and what happens next.</p></div>
@@ -1097,7 +1127,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="lite">
+  <section id="about" class="charcoal">
     <div class="wrap band">
       <div class="about-grid">
         <div class="about-media rv"><img src="https://cdn.katalyst-crm.com/a/daa8446b-dc29-3a32-b791-0ae119bde698" alt="Ronnie Barnard" loading="lazy"></div>
@@ -1115,26 +1145,19 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
             </div>
             <button class="more" data-clamp="ab">Read more <span class="chev">▾</span></button>
           </div>
+          <div class="creds in-col" style="grid-template-columns:1fr;margin-top:28px">
+            <div class="cred"><div class="ct">Best Technologist of the Year</div><div class="cd">CSIR, South Africa, 1996</div></div>
+            <div class="cred"><div class="ct">Named inventor</div><div class="cd">on a medical device patent and three related publications</div></div>
+            <div class="cred"><div class="ct">Stanford Who’s Who</div><div class="cd">Honored Member, Executive Professionals and Entrepreneurs, 2011</div></div>
+            <div class="cred"><div class="ct">Co-Founder</div><div class="cd">Infogility AI</div></div>
+            <div class="cred"><div class="ct">CTO-level technical leader</div><div class="cd">MyGentic</div></div>
+            <div class="cred"><div class="ct">STEM advocate</div><div class="cd">Co-hosted a space and science event for high school students with Ontario International Airport’s Pathways program, 2020</div></div>
+          </div>
         </div>
       </div>
-
-      <div class="creds rv">
-        <div class="cred"><div class="ct">Best Technologist of the Year</div><div class="cd">CSIR, South Africa, 1996</div></div>
-        <div class="cred"><div class="ct">Named inventor</div><div class="cd">on a medical device patent and three related publications</div></div>
-        <div class="cred"><div class="ct">Stanford Who’s Who</div><div class="cd">Honored Member, Executive Professionals and Entrepreneurs, 2011</div></div>
-        <div class="cred"><div class="ct">Co-Founder</div><div class="cd">Infogility AI</div></div>
-        <div class="cred"><div class="ct">CTO-level technical leader</div><div class="cd">MyGentic</div></div>
-        <div class="cred"><div class="ct">STEM advocate</div><div class="cd">Co-hosted a space and science event for high school students with Ontario International Airport’s Pathways program, 2020</div></div>
-      </div>
     </div>
   </section>
 
-  <!-- GALLERY STRIP -->
-  <section id="gallery" class="lite" aria-label="Photo gallery">
-    <div class="gallery">
-      <div class="gtrack"><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div></div>
-    </div>
-  </section>
 
   <!-- FAQ -->
   <section id="faq" class="lite">
@@ -1177,11 +1200,15 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
   <!-- FINAL CTA -->
   <section class="final hasbg" id="contact">
-    <div class="bgfx" style="--img:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_293e440c-5b29-4e8a-a06b-97e536977588.png');--op:.62"></div>
+    <div class="bgfx">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_293e440c-5b29-4e8a-a06b-97e536977588.png">
+        <source src="https://cdn.katalyst-crm.com/a/2a7a5474-6d47-c90c-8423-80e934b5dd43" type="video/mp4">
+      </video>
+    </div>
     <div class="wrap band">
-      <h2 class="h2 type rv" style="max-width:none;font-size:clamp(1.7rem,4vw,3rem);margin-inline:auto">Let’s find what’s really in the way.</h2>
-      <p class="lede rv" style="margin-top:22px;max-width:880px;margin-inline:auto;font-size:clamp(1.1rem,1.8vw,1.35rem)">Before you spend more time, money, or people on it, make sure you’re solving the right problem.</p>
-      <p class="lede rv" style="margin-top:16px;color:var(--dim);font-size:15px">Start with a confidential conversation. Tell me what’s not delivering the expected value, what’s been tried, and what it’s costing you. Not every difficult initiative needs an outside advisor. The conversation will show whether yours does.</p>
+      <h2 class="h2 type rv" style="max-width:none;font-size:clamp(2.2rem,5.2vw,3.9rem);margin-inline:auto">Let’s find what’s really in the way.</h2>
+      <p class="lede rv oneline" style="margin-top:22px;max-width:none;margin-inline:auto;font-size:clamp(1.1rem,1.7vw,1.4rem);color:#fff">Before you spend more time, money, or people on it, make sure you’re solving the right problem.</p>
+      <p class="lede rv" style="margin-top:16px;max-width:980px;margin-inline:auto;color:#f0f0f3;font-size:clamp(1rem,1.5vw,1.1rem)">Start with a confidential conversation. Tell me what’s not delivering the expected value, what’s been tried, and what it’s costing you. Not every difficult initiative needs an outside advisor. The conversation will show whether yours does.</p>
       <div class="cta-row rv">
         <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
         <a class="btn ghost" href="#paper">Download the white paper <span class="arw">→</span></a>
@@ -1194,7 +1221,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="foot-name"><img src="https://cdn.katalyst-crm.com/a/31efe6d5-5381-4087-9e67-0bbefed82aeb" alt="Ronnie Barnard"> <span>Technology Initiative Advisor</span></div>
+        <div class="foot-name"><img src="https://cdn.katalyst-crm.com/a/f1ea4d15-367d-44e6-758f-300e7c6cac35" alt="Ronnie Barnard"> <span>Technology Initiative Advisor</span></div>
         <p class="tagline">Find the real constraint. Reframe the problem. Restore progress.</p>
         <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
       </div>
@@ -1306,7 +1333,15 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     }, {passive:true});
     if (paused) car.classList.add('is-paused');
     render();
-    start();
+    /* start on slide 1 when the carousel scrolls into view, not from page load */
+    var seen = false;
+    var cio = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ if (!seen){ seen = true; i = 0; render(); } start(); }
+        else { stop(); }
+      });
+    }, {threshold:0.35});
+    cio.observe(car);
   });
 
   /* ---- engagements carousel arrows ---- */
