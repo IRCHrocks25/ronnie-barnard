@@ -1,0 +1,1420 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<title>Ronnie Barnard Advisory</title>
+<meta name="description" content="Ronnie Barnard, independent Technology Initiative Advisor. Find the real constraint, decide what should change, and move to measurable progress.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+</head><body>
+<style>
+/* Layout: single dark column, full-bleed hairline bands, 12-col bento grids inside a 1180px wrap */
+:root{
+  --bg:#000000;
+  --surface:#0b0b0c;
+  --surface-hi:#151517;
+  --line:rgba(255,255,255,.13);
+  --line-soft:rgba(255,255,255,.07);
+  --fg:#fafafa;
+  --muted:#8c8c94;
+  --dim:#5c5c64;
+  --accent:#FF6A1F;
+  --accent-hi:#FF8B4D;
+  --accent-soft:rgba(255,106,31,.13);
+  --accent-line:rgba(255,106,31,.42);
+  --display:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{overflow-x:hidden}
+body{
+  background:var(--bg);color:var(--fg);font-family:var(--body);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;max-width:100%;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:rgba(0,0,0,.92);backdrop-filter:blur(12px)}
+h1,h2,h3,h4{font-family:var(--display);font-weight:500;letter-spacing:-.035em;line-height:1.04;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+ul{padding:0;margin:0}
+.wrap{
+  max-width:min(1480px,calc(50vw + 590px));margin-inline:auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+section{border-top:1px solid var(--line-soft)}
+.band{padding-block:clamp(64px,9vw,128px)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
+.eyebrow::before{content:"";display:inline-block;width:18px;height:1px;background:var(--accent);vertical-align:middle;margin-right:10px;opacity:.7}
+.h2{font-size:clamp(2rem,4.4vw,3.25rem)}
+.lede{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:62ch;line-height:1.55}
+.sub{font-size:clamp(1.15rem,2vw,1.5rem);color:var(--fg);letter-spacing:-.02em;font-family:var(--display);max-width:40ch}
+.stack{display:flex;flex-direction:column;gap:22px}
+.mono-note{color:var(--dim);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
+
+/* ---------- typing caret ---------- */
+.caret{display:inline-block;width:.075em;min-width:3px;height:.84em;background:var(--accent);margin-left:.09em;vertical-align:-.05em;border-radius:1px;box-shadow:0 0 14px rgba(255,106,31,.75);animation:blink 1.05s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* ---------- scroll progress ---------- */
+.progress{position:fixed;top:env(safe-area-inset-top,0px);left:0;height:2px;width:0;z-index:70;background:linear-gradient(90deg,var(--accent),var(--accent-hi));box-shadow:0 0 12px rgba(255,106,31,.6);transition:width .12s linear}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- nav ---------- */
+header{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent}
+header .wrap{max-width:min(1480px,calc(50vw + 590px))}
+.nav{display:flex;align-items:center;gap:22px;height:76px;position:relative}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);letter-spacing:-.02em;font-weight:600;font-size:16.5px;text-decoration:none;white-space:nowrap}
+.brand img{height:44px;width:auto;display:block;flex:none}
+.brand span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);font-weight:400;padding-left:11px;border-left:1px solid rgba(255,255,255,.3)}
+.navlinks{display:flex;gap:3px;margin-inline:auto;font-size:13.5px;color:#fff}
+.navlinks a{color:#fff;text-decoration:none;transition:color .2s,background .2s;padding:9px 15px;border-radius:999px;white-space:nowrap}
+.navlinks a:hover{color:#fff;background:rgba(255,255,255,.12)}
+.nav .btn{margin-left:2px}
+.navlinks .nav-cta{display:none}
+.menu-btn{display:none;width:42px;height:42px;flex:none;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;place-items:center;cursor:pointer;padding:0;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.menu-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.menu-btn .i-x,header.open .menu-btn .i-bars{display:none}
+header.open .menu-btn .i-x{display:block}
+@media (max-width:1360px){.brand span{display:none}}
+@media (max-width:1200px){.nav .btn.ghost{display:none}}
+@media (max-width:1100px){
+  .menu-btn{display:grid}
+  .nav .btn.solid{margin-left:auto}
+  .navlinks{display:none;position:absolute;top:calc(100% - 4px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));flex-direction:column;gap:2px;margin:0;padding:10px;font-size:15px;background:rgba(11,11,12,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  header.open .navlinks{display:flex}
+  .navlinks a{padding:13px 16px;border-radius:10px}
+}
+@media (max-width:620px){.brand img{height:34px}.nav{gap:12px;height:66px}.nav .btn.solid{padding:9px 15px;font-size:12px}}
+@media (max-width:440px){
+  .nav .btn.solid{display:none}
+  .menu-btn{margin-left:auto}
+  .navlinks .nav-cta{display:flex;justify-content:center;margin-top:6px;background:var(--accent);color:#120600;font-weight:600}
+  .navlinks .nav-cta:hover{background:var(--accent-hi);color:#120600}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,background .2s,border-color .2s,color .2s,box-shadow .2s;white-space:nowrap}
+.btn.solid{background:var(--accent);color:#120600;font-weight:600}
+.btn.solid:hover{transform:translateY(-1px);background:var(--accent-hi);box-shadow:0 8px 26px rgba(255,106,31,.3)}
+.btn.ghost{border-color:var(--line);color:var(--fg)}
+.btn.ghost:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
+.btn .arw{transition:transform .2s}
+.btn:hover .arw{transform:translate(3px)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+@media (max-width:480px){
+  .btn{white-space:normal;text-align:center}
+  .hero .cta-row .btn,.final .cta-row .btn{width:100%;justify-content:center}
+  .pill{font-size:11.5px;margin-bottom:24px}
+}
+
+/* ---------- icons ---------- */
+.ico{width:38px;height:38px;flex:none;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;color:var(--accent);background:rgba(255,106,31,.06);transition:background .25s,border-color .25s,transform .25s}
+.ico svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.card:hover .ico,.benefit:hover .ico,.award:hover .ico{background:var(--accent-soft);border-color:var(--accent-line);transform:translateY(-1px)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;border-top:0;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start}
+.hero::after{content:"";position:absolute;left:50%;top:-240px;width:min(1100px,150vw);aspect-ratio:1/.55;transform:translateX(-50%);pointer-events:none;background:radial-gradient(ellipse at center,rgba(255,106,31,.18),rgba(255,106,31,0) 66%)}
+.hero .wrap{position:relative;z-index:1;text-align:center;padding-block:clamp(150px,30vh,340px) clamp(48px,8vh,110px)}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:6px 14px 6px 8px;font-size:12px;color:#fff;margin-bottom:32px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 4px 20px rgba(0,0,0,.25);transition:border-color .25s,background .25s}
+.pill:hover{border-color:rgba(255,255,255,.4);background:rgba(255,255,255,.16)}
+.pill b{background:var(--accent);color:#140700;font-weight:600;border-radius:999px;padding:2px 9px;font-size:10.5px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+h1{font-size:clamp(2rem,4.8vw,3.4rem);max-width:34ch;margin-inline:auto;line-height:1.06}
+h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:10px;text-decoration-color:var(--accent)}
+.hero p{margin-inline:auto}
+.hero .p1{margin-top:30px;color:#d4d4db;font-size:clamp(1rem,1.5vw,1.18rem);max-width:84ch;line-height:1.6}
+.hero .p2{margin-top:18px;color:var(--muted);font-size:15px;max-width:76ch;line-height:1.65}
+.hero .cta-row{justify-content:center;margin-top:36px}
+
+/* ---------- bento ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{background:var(--surface);border:1px solid var(--line-soft);border-radius:14px;padding:22px;transition:border-color .25s,background .25s,transform .25s}
+.card:hover{border-color:var(--accent-line);background:var(--surface-hi);transform:translateY(-3px)}
+.card .k{font-family:var(--display);font-size:clamp(1.3rem,2.4vw,1.8rem);letter-spacing:-.03em;line-height:1.1;margin-top:16px}
+.card .v{color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:10px}
+.card.wide{grid-column:span 4;display:flex;gap:16px;align-items:flex-start}
+.card.wide .v{margin-top:0;font-size:14.5px;color:#aeaeb6}
+.card.wide .ico{width:34px;height:34px;border-radius:9px}
+@media (max-width:860px){.bento{grid-template-columns:repeat(2,1fr)}.card.wide{grid-column:span 2}}
+@media (max-width:460px){.bento{grid-template-columns:1fr}.card.wide{grid-column:span 1}}
+/* combined intro: portrait + statement as one block */
+.cred-intro{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(32px,5vw,68px);align-items:center}
+.cred-portrait{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5;background:#0a0a0b;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.cred-portrait img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
+.cred-lead .eyebrow{margin-bottom:18px}
+.cred-statement{font-family:var(--display);font-size:clamp(1.45rem,2.7vw,2.25rem);line-height:1.26;letter-spacing:-.02em;color:var(--fg);margin:0;max-width:26ch}
+.cred-statement b{color:var(--accent)}
+/* proof block */
+.cred-proof{margin-top:clamp(56px,8vw,100px);padding-top:clamp(44px,6vw,66px);border-top:1px solid var(--line-soft)}
+@media (min-width:900px){.cred-h2{white-space:nowrap}}
+.cred-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:clamp(32px,4vw,46px)}
+.ccard{background:linear-gradient(140deg,var(--accent),var(--accent-hi));border-radius:16px;padding:24px;color:#160800;transition:transform .25s,box-shadow .25s}
+.ccard:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(255,106,31,.28)}
+.ccard .cico{width:36px;height:36px;border-radius:10px;background:rgba(20,8,0,.14);border:1px solid rgba(20,8,0,.22);display:grid;place-items:center;color:#140700}
+.ccard .cico svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ccard .ck{font-family:var(--display);font-size:clamp(1.35rem,2vw,1.75rem);letter-spacing:-.03em;line-height:1.05;margin-top:22px;color:#160800}
+.ccard .cv{color:rgba(20,8,0,.8);font-size:13.5px;line-height:1.5;margin-top:9px}
+.ccard.wide{grid-column:span 2;display:flex;gap:16px;align-items:center}
+.ccard.wide .cico{flex:none}
+.ccard.wide .cv{margin-top:0;font-size:14.5px}
+@media (max-width:860px){.cred-intro{grid-template-columns:1fr;gap:28px}.cred-portrait{aspect-ratio:3/4;max-height:540px}.cred-cards{grid-template-columns:repeat(2,1fr)}.ccard.wide{grid-column:span 2}}
+@media (max-width:480px){.cred-cards{grid-template-columns:1fr}.ccard.wide{grid-column:span 1;flex-direction:column;align-items:flex-start}.ccard.wide .cv{margin-top:4px}}
+
+/* ---------- strip ---------- */
+.strip{padding-block:26px;text-align:center;font-family:var(--display);font-size:clamp(1rem,2vw,1.4rem);letter-spacing:-.02em;color:#cfcfd6}
+.strip em{font-style:normal;color:var(--accent)}
+
+/* ---------- quotes ---------- */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:44px}
+.quote{border:1px solid var(--line-soft);border-radius:12px;padding:20px;background:var(--surface);font-family:var(--display);font-size:clamp(1rem,1.5vw,1.12rem);letter-spacing:-.02em;line-height:1.3;color:#d6d6dd;transition:transform .25s,border-color .25s,color .25s,background .25s;min-width:0;position:relative;overflow:hidden}
+.quote::after{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:transform .3s}
+.quote:hover{transform:translateY(-3px);border-color:var(--accent-line);color:#fff;background:var(--surface-hi)}
+.quote:hover::after{transform:scaleY(1)}
+@media (max-width:860px){.quotes{grid-template-columns:1fr}}
+
+/* ---------- read more ---------- */
+.clamp .body{display:-webkit-box;-webkit-line-clamp:3;line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:var(--muted)}
+.clamp.open .body{display:block}
+.more{margin-top:12px;background:none;border:0;padding:0;color:var(--accent);font:inherit;font-size:12px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase}
+.more:hover{color:var(--accent-hi)}
+.more .chev{transition:transform .25s}
+.clamp.open .more .chev{transform:rotate(180deg)}
+
+/* ---------- stats ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;border-top:1px solid var(--line-soft)}
+.stat{padding:30px 26px;border-right:1px solid var(--line-soft);transition:background .25s}
+.stat:last-child{border-right:0}
+.stat:hover{background:linear-gradient(180deg,rgba(255,106,31,.07),transparent)}
+.stat .n{font-family:var(--display);font-size:clamp(2.6rem,5.5vw,3.9rem);letter-spacing:-.04em;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.stat .d{color:#b4b4bc;font-size:14.5px;margin-top:14px;max-width:34ch;line-height:1.5}
+.stat .src{color:var(--dim);font-size:11.5px;font-family:var(--mono);margin-top:14px;line-height:1.5}
+@media (max-width:760px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line-soft);padding-right:0}.stat:last-child{border-bottom:0}}
+
+/* ---------- benefit (collapsible) ---------- */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:44px}
+@media (max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid3{grid-template-columns:1fr}}
+.benefit{position:relative;overflow:hidden;border:1px solid var(--line-soft);border-radius:14px;background:var(--surface);transition:border-color .25s,transform .25s,background .25s}
+.benefit::before{content:"";position:absolute;inset:-1px -1px auto;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.benefit:hover{transform:translateY(-3px);border-color:var(--accent-line);background:var(--surface-hi)}
+.benefit:hover::before,.benefit.open::before{opacity:1}
+.bhead{width:100%;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;display:flex;align-items:center;gap:14px;padding:22px}
+.bhead .bt{font-family:var(--display);font-size:1.12rem;letter-spacing:-.025em;flex:1;min-width:0;line-height:1.2}
+.benefit .panel .pad{padding:0 22px 22px 74px}
+.benefit p{color:var(--muted);font-size:14px;line-height:1.55}
+@media (max-width:560px){.benefit .panel .pad{padding-left:22px}}
+
+/* ---------- accordion ---------- */
+.acc{border-top:1px solid var(--line-soft);margin-top:40px}
+.item{border-bottom:1px solid var(--line-soft)}
+.trigger{width:100%;background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:pointer;display:flex;align-items:flex-start;gap:18px;padding:24px 8px;transition:background .25s,padding-left .25s}
+.trigger:hover{background:rgba(255,106,31,.05);padding-left:18px}
+.trigger .idx{font-family:var(--mono);font-size:11.5px;color:var(--dim);padding-top:6px;letter-spacing:.1em;flex:none;transition:color .25s}
+.item.open .trigger .idx,.trigger:hover .idx{color:var(--accent)}
+.trigger .ttl{flex:1;min-width:0}
+.trigger .ttl .t{font-family:var(--display);font-size:clamp(1.12rem,2vw,1.42rem);letter-spacing:-.025em;line-height:1.2;display:block}
+.trigger .ttl .s{color:var(--muted);font-size:14px;margin-top:7px;line-height:1.5;display:block}
+.sign{flex:none;width:26px;height:26px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;margin-top:3px;transition:transform .3s,border-color .25s,background .25s;color:var(--fg)}
+.trigger:hover .sign,.bhead:hover .sign{border-color:var(--accent-line);color:var(--accent)}
+.item.open .sign,.case.open .sign,.benefit.open .sign{transform:rotate(45deg);background:var(--accent);border-color:var(--accent);color:#140700}
+.sign svg{width:11px;height:11px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1)}
+.item.open>.panel,.case.open>.panel,.benefit.open>.panel{grid-template-rows:1fr}
+.panel>.inner{overflow:hidden}
+.panel .pad{padding:0 8px 28px 44px;display:flex;flex-direction:column;gap:14px;max-width:88ch}
+.panel p{color:#a9a9b2;font-size:14.8px;line-height:1.68}
+.panel p b{color:var(--accent);font-weight:500}
+@media (max-width:560px){.panel .pad{padding-left:8px}}
+
+/* ---------- cases ---------- */
+.cases{display:grid;gap:10px;margin-top:44px}
+.case{border:1px solid var(--line-soft);border-radius:16px;background:var(--surface);overflow:hidden;transition:border-color .25s,background .25s}
+.case:hover{border-color:var(--accent-line)}
+.case.open{background:var(--surface-hi);border-color:var(--accent-line)}
+.case .trigger{padding:26px}
+.case .trigger:hover{padding-left:26px;background:transparent}
+.case .panel .pad{padding:0 26px 28px}
+.tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);display:block}
+
+/* ---------- testimonials ---------- */
+.tgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:44px}
+@media (max-width:860px){.tgrid{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--line-soft);border-radius:16px;padding:28px;background:var(--surface);display:flex;flex-direction:column;gap:14px;transition:border-color .25s,background .25s}
+.tcard:hover{border-color:var(--accent-line);background:var(--surface-hi)}
+.tcard .mark{font-family:var(--display);font-size:2.2rem;line-height:.6;color:var(--accent)}
+.tcard .q{font-family:var(--display);font-size:clamp(1rem,1.5vw,1.16rem);line-height:1.5;letter-spacing:-.015em;color:#dcdce3}
+.tcard .who{font-size:13px;color:var(--muted);font-family:var(--mono);letter-spacing:.04em}
+.vids{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+@media (max-width:760px){.vids{grid-template-columns:1fr}}
+.vid{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--line-soft);border-radius:12px;padding:18px 20px;text-decoration:none;background:var(--surface);transition:border-color .25s,transform .25s,background .25s}
+.vid:hover{border-color:var(--accent-line);transform:translateY(-2px);background:var(--surface-hi)}
+.vid .l{font-size:14px}
+.vid .u{font-size:12px;color:var(--dim);font-family:var(--mono);margin-top:4px;word-break:break-all;display:block}
+.play{width:32px;height:32px;border-radius:50%;border:1px solid var(--accent-line);color:var(--accent);display:grid;place-items:center;flex:none;font-size:10px;transition:background .25s,color .25s}
+.vid:hover .play{background:var(--accent);color:#140700}
+
+/* ---------- question list ---------- */
+.qlist{margin-top:30px;border-top:1px solid var(--line-soft)}
+.qlist li{list-style:none;padding:16px 10px;border-bottom:1px solid var(--line-soft);font-family:var(--display);font-size:clamp(1rem,1.7vw,1.22rem);letter-spacing:-.02em;color:#cdcdd5;display:flex;gap:14px;transition:color .2s,padding-left .25s,background .2s}
+.qlist li:hover{color:#fff;padding-left:20px;background:rgba(255,106,31,.05)}
+.qlist li::before{content:"→";color:var(--accent);font-size:14px;flex:none}
+
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+
+.badge{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;background:var(--accent);color:#140700;font-weight:600;border-radius:999px;padding:4px 10px;margin-bottom:12px}
+.note{color:var(--muted);font-size:14.5px;max-width:66ch}
+
+/* ---------- about ---------- */
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:40px}
+@media (max-width:860px){.awards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.awards{grid-template-columns:1fr}}
+.award{border:1px solid var(--line-soft);border-radius:12px;padding:20px;background:var(--surface);transition:border-color .25s,transform .25s,background .25s;display:flex;gap:14px;align-items:flex-start}
+.award:hover{border-color:var(--accent-line);transform:translateY(-2px);background:var(--surface-hi)}
+.award .at{font-family:var(--display);font-size:1.02rem;letter-spacing:-.02em}
+.award .ad{color:var(--muted);font-size:13px;margin-top:8px;line-height:1.5}
+.award .ico{width:32px;height:32px;border-radius:9px}
+
+/* ---------- final + footer ---------- */
+.final{text-align:center;position:relative;overflow:hidden}
+.final::after{content:"";position:absolute;left:50%;bottom:-340px;width:min(1000px,140vw);aspect-ratio:1/.6;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(255,106,31,.16),transparent 70%);pointer-events:none}
+.final .wrap{position:relative;z-index:1}
+.final .cta-row{justify-content:center;margin-top:34px}
+.final .lede{margin-inline:auto}
+footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 40px;color:var(--muted);font-size:13.5px}
+.foot-top{display:grid;grid-template-columns:1.25fr 2fr;gap:clamp(34px,5vw,72px);align-items:start}
+.foot-name{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:600;letter-spacing:-.02em;color:#fff;font-size:1.08rem}
+.foot-name img{height:30px;width:auto;display:block}
+.foot-name span{color:var(--dim);font-weight:400;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase}
+.tagline{font-family:var(--display);color:#d2d2d9;font-size:clamp(1.05rem,1.8vw,1.3rem);letter-spacing:-.02em;margin:14px 0 24px;max-width:32ch;line-height:1.3}
+.foot-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.foot-col h4{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 18px;font-weight:600}
+.foot-col a,.foot-col p{display:block;text-decoration:none;color:var(--muted);margin:0 0 12px;font-size:14px;width:max-content;transition:color .2s,padding-left .2s}
+.foot-col a:hover{color:var(--accent);padding-left:5px}
+.foot-col p{max-width:30ch;line-height:1.5}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(40px,5vw,60px);padding-top:26px;border-top:1px solid var(--line-soft);color:var(--dim);font-size:12px;font-family:var(--mono)}
+@media (max-width:760px){.foot-top{grid-template-columns:1fr;gap:38px}.foot-cols{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:440px){.foot-cols{grid-template-columns:1fr}}
+
+/* ---------- light sections ---------- */
+.lite{
+  --bg:#f4f2ee;--surface:#ffffff;--surface-hi:#ffffff;
+  --line:rgba(22,18,13,.15);--line-soft:rgba(22,18,13,.08);
+  --fg:#17130d;--muted:#5d584f;--dim:#8d877c;
+  background:var(--bg);color:var(--fg)
+}
+.lite .panel p{color:#4b463d}
+.lite .tcard .q{color:#211c14}
+.lite .clamp .body{color:#5d584f}
+.lite .trigger:hover{background:rgba(255,106,31,.07)}
+.lite .stat .d{color:#4b463d}
+.lite .stat:hover{background:linear-gradient(180deg,rgba(255,106,31,.06),transparent)}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;margin-top:46px;position:relative;padding-block:8px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.mtrack{display:flex;align-items:center;gap:30px;width:max-content;animation:scrollx 52s linear infinite}
+.marquee:hover .mtrack{animation-play-state:paused}
+.mq{flex:none;font-family:var(--display);font-size:clamp(1.3rem,2.7vw,2.05rem);letter-spacing:-.025em;color:var(--accent);white-space:nowrap;display:flex;align-items:center;gap:30px}
+.mq::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex:none}
+@keyframes scrollx{to{transform:translateX(-50%)}}
+
+/* ---------- problem 2-col ---------- */
+.problem-head{text-align:center;max-width:60ch;margin:0 auto}
+.problem-head .sub{margin:16px auto 0;max-width:none}
+@media (min-width:780px){.problem-head .sub{white-space:nowrap}}
+.p-lede{max-width:72ch;margin:48px auto 0;text-align:center}
+.clamp2{max-width:900px;margin:26px auto 0}
+.clamp2 .cols{columns:2;column-gap:46px;max-height:7.5em;overflow:hidden;transition:max-height .55s ease}
+.clamp2.open .cols{max-height:1200px}
+.clamp2 .cols p{margin:0 0 14px;color:var(--muted);font-size:14.8px;line-height:1.68;break-inside:avoid}
+.clamp2 .more{display:flex;width:max-content;margin:16px auto 0}
+@media (max-width:700px){.clamp2 .cols{columns:1;max-height:9em}}
+
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation:none!important}.rv{opacity:1!important;transform:none!important}}
+
+/* ---------- Higgsfield image backgrounds & box images ---------- */
+.hasbg{position:relative;isolation:isolate}
+.hasbg>.wrap{position:relative;z-index:2}
+.bgfx{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.bgfx::before{content:"";position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center;opacity:var(--op,.62)}
+.bgfx::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.72),rgba(0,0,0,.46) 42%,rgba(0,0,0,.84))}
+.hero.hasbg .bgfx::before{opacity:.66}
+.hero.hasbg .bgfx::after{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.38) 38%,rgba(0,0,0,.82))}
+.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.case-img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:12px;border:1px solid var(--line-soft);margin-bottom:6px}
+
+/* ---------- Results carousel ---------- */
+.carousel{margin-top:44px}
+.carousel-viewport{overflow:hidden;border-radius:16px;border:1px solid var(--line-soft);background:var(--surface)}
+.carousel-track{display:flex;will-change:transform;transition:transform .6s cubic-bezier(.45,.02,.1,1)}
+.slide{flex:0 0 100%;min-width:100%;display:grid;grid-template-columns:1.02fr 1fr;align-items:stretch}
+.slide-text{padding:clamp(26px,3.4vw,52px);display:flex;flex-direction:column;justify-content:center;background:var(--surface)}
+.slide-num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.slide-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-top:14px}
+.slide-title{font-family:var(--display);color:var(--accent-hi);font-size:clamp(1.5rem,2.6vw,2.15rem);line-height:1.1;letter-spacing:-.02em;margin:12px 0 22px;max-width:26ch}
+.slide-body{margin:0;display:grid;gap:16px}
+.slide-body dt{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-bottom:4px}
+.slide-body dd{margin:0;color:#e9e9ee;font-size:16px;line-height:1.62}
+.slide-body b{color:var(--fg)}
+.slide-media{position:relative;min-height:100%;background:#000}
+.slide-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%}
+.slide-media::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(11,11,12,.55),transparent 34%)}
+.carousel-ctrl{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:26px}
+.cbtn{width:46px;height:46px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
+.cbtn:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
+.cbtn svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cbtn-play svg{fill:currentColor;stroke:none}
+.cbtn-play .i-play{display:none}
+.carousel.is-paused .cbtn-play .i-pause{display:none}
+.carousel.is-paused .cbtn-play .i-play{display:block}
+.cdots{display:flex;align-items:center;gap:9px}
+.cdot{width:9px;height:9px;padding:0;border:0;border-radius:999px;background:var(--line);cursor:pointer;transition:width .3s,background .3s}
+.cdot.is-active{width:26px;background:var(--accent)}
+
+/* ---------- Video testimonial thumbnails ---------- */
+.vthumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
+.vthumb{position:relative;display:block;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.12);aspect-ratio:16/9;background:#000}
+.vthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.4,0,.1,1)}
+.vthumb:hover img{transform:scale(1.06)}
+.vthumb::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.62));z-index:1}
+.vplay{position:absolute;inset:0;z-index:2;display:grid;place-items:center}
+.vplay i{width:58px;height:58px;border-radius:999px;background:rgba(255,106,31,.94);display:grid;place-items:center;box-shadow:0 10px 32px rgba(0,0,0,.5);transition:transform .25s,background .25s}
+.vthumb:hover .vplay i{transform:scale(1.09);background:var(--accent-hi)}
+.vplay svg{width:22px;height:22px;fill:#140700;margin-left:3px}
+.vtag{position:absolute;left:13px;bottom:11px;z-index:2;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;display:flex;align-items:center;gap:7px}
+.vtag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+@media(max-width:700px){.vthumbs{grid-template-columns:1fr 1fr}.vthumbs .vthumb:first-child{grid-column:1/-1;aspect-ratio:16/8}}
+
+/* ---------- Why: 2-column with portrait ---------- */
+.why-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(28px,4vw,56px);align-items:start;margin-top:48px}
+.why-media{position:sticky;top:96px;border-radius:16px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5;background:#000}
+.why-media img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
+.why-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.5),transparent 46%)}
+.why-grid .acc{margin-top:0}
+@media (max-width:860px){.why-grid{grid-template-columns:1fr}.why-media{position:static;aspect-ratio:3/4;max-height:540px}}
+
+/* ---------- About: 2-column + plain credential list ---------- */
+.about-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(30px,4vw,60px);align-items:start;margin-top:12px}
+.about-media{position:sticky;top:96px;border-radius:16px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5;background:rgba(0,0,0,.05)}
+.about-media img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block}
+@media (max-width:860px){
+  .cred-portrait img,.about-media img,.why-media img{object-position:center 15%}
+}
+@media (max-width:640px){
+  .ecard-media img,.slide-media img{object-position:center 25%}
+  .gitem img{object-position:center 18%}
+}
+.creds{margin-top:clamp(30px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,64px)}
+.cred{padding:13px 0;border-top:1px solid var(--line-soft)}
+.cred .ct{font-family:var(--display);font-size:1.05rem;letter-spacing:-.01em;color:var(--accent)}
+.cred .cd{color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:3px;max-width:52ch}
+@media(max-width:860px){.about-grid{grid-template-columns:1fr}.about-media{position:static;aspect-ratio:3/4;max-height:540px}}
+@media(max-width:700px){.creds{grid-template-columns:1fr}}
+
+/* ---------- Moving gallery strip (right to left) ---------- */
+.gallery{overflow:hidden;position:relative;padding-block:clamp(30px,4vw,52px);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.gtrack{display:flex;gap:18px;width:max-content;animation:gscroll 70s linear infinite}
+.gallery:hover .gtrack{animation-play-state:paused}
+.gitem{flex:none;width:clamp(230px,25vw,350px);aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:1px solid var(--line-soft);background:#0a0a0b}
+.gitem img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;transition:transform .6s cubic-bezier(.4,0,.1,1)}
+.gitem:hover img{transform:scale(1.05)}
+@keyframes gscroll{to{transform:translateX(-50%)}}
+
+/* ---------- Framework showcase (full-bleed over image) ---------- */
+.showcase{overflow:hidden}
+.showcase .bgfx::before{opacity:.72!important}
+.showcase .bgfx::after{background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.42) 42%,rgba(0,0,0,.9))!important}
+.fw-head{max-width:70ch;text-align:center;margin-inline:auto}
+.fw-head .sub,.fw-head .lede{margin-inline:auto}
+.fw-head+.fw-grid{margin-top:clamp(44px,7vw,96px)}
+.fw-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:30px;margin-top:clamp(48px,8vw,110px);padding-top:30px;border-top:1px solid rgba(255,255,255,.26)}
+.fw-col{position:relative}
+.fw-arrow{width:38px;height:38px;color:var(--accent);margin-bottom:22px}
+.fw-arrow svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fw-step{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);opacity:.9}
+.fw-col h3{font-family:var(--display);font-size:clamp(1.5rem,2.1vw,1.95rem);letter-spacing:-.01em;margin:9px 0 12px;color:var(--fg)}
+.fw-q{font-family:var(--display);font-style:italic;color:#f2f2f5;font-size:16.5px;line-height:1.4;margin:0 0 12px}
+.fw-col p.fw-d{color:#e2e2e8;font-size:15.5px;line-height:1.6;margin:0}
+
+/* ---------- Value: KATEK-style icon/title/tag/desc grid ---------- */
+.vget{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(40px,5vw,60px);border-top:1px solid var(--line-soft);border-left:1px solid var(--line-soft)}
+.vcell{display:flex;flex-direction:column;min-height:330px;padding:clamp(28px,3vw,46px);border-right:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+.vcell .vi{width:50px;height:50px;color:var(--accent)}
+.vcell .vi svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.vtext{margin-top:auto}
+.vtext h3{font-family:var(--display);font-size:clamp(1.35rem,1.9vw,1.7rem);letter-spacing:-.01em;color:var(--fg);margin:0 0 12px}
+.vtext .vk{font-family:var(--body);font-weight:600;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+.vtext .vd{color:var(--muted);font-size:15px;line-height:1.6;margin:0;max-width:40ch}
+@media (max-width:860px){.vget{grid-template-columns:repeat(2,1fr)}.vcell{min-height:290px}}
+@media (max-width:560px){.vget{grid-template-columns:1fr}.vcell{min-height:0}}
+
+/* ---------- Engagements: image-top cards in a carousel ---------- */
+.eng-wrap{position:relative;margin-top:clamp(40px,5vw,56px)}
+.eng-nav{display:flex;justify-content:flex-end;gap:12px;margin-bottom:18px}
+.eng-nav button{width:48px;height:48px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
+.eng-nav button:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
+.eng-nav button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.eng-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(340px,1fr);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none}
+.eng-track::-webkit-scrollbar{display:none}
+.ecard{scroll-snap-align:start;background:var(--surface);border:1px solid var(--accent-line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.ecard:hover{border-color:var(--accent);transform:translateY(-3px)}
+.ecard.feat{border-color:var(--accent-line)}
+.ecard-media{position:relative;aspect-ratio:4/3;background:#0a0a0b;overflow:hidden}
+.ecard-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.ecard-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,11,12,.55),transparent 42%)}
+.ecard-body{position:relative;padding:42px 28px 30px;display:flex;flex-direction:column;align-items:center;text-align:center;flex:1}
+.ecard-num{position:absolute;left:50%;top:-18px;transform:translateX(-50%);z-index:4;width:50px;height:38px;background:var(--accent);color:#140700;font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.06em;display:grid;place-items:center;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
+.ecard-head{display:flex;flex-direction:column;align-items:center;width:100%;min-height:302px}
+.ecard-rule{width:1px;height:30px;background:var(--accent);margin:2px 0 16px}
+.ecard-ico{width:30px;height:30px;color:var(--accent);margin-bottom:16px}
+.ecard-ico svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ecard-badge{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.ecard h3{font-family:var(--display);font-size:clamp(1.25rem,1.7vw,1.5rem);letter-spacing:-.01em;margin:0 0 6px;color:var(--fg)}
+.ecard .efor{color:var(--muted);font-size:13.5px;line-height:1.5;margin:0;max-width:34ch}
+.ecard-detail{text-align:left;width:100%;border-top:1px solid var(--accent-line);padding-top:18px;display:flex;flex-direction:column;gap:12px}
+.ecard-detail p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+.ecard-detail b{color:var(--fg)}
+@media (max-width:620px){.eng-track{grid-auto-columns:minmax(260px,86%)}.ecard-head{min-height:0}.ecard-body{padding:40px 22px 26px}}
+
+/* ---------- Gallery light theme override ---------- */
+.lite .gitem{background:#eceae4;border-color:var(--line-soft)}
+
+/* ---------- Investors 2-col ---------- */
+.inv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:start;margin-top:8px}
+.inv-grid .qlist{margin-top:6px}
+@media (max-width:860px){.inv-grid{grid-template-columns:1fr;gap:28px}}
+
+@media (max-width:960px){
+  .slide{grid-template-columns:1fr}
+  .slide-media{min-height:230px;order:-1}
+  .slide-media::after{background:linear-gradient(0deg,rgba(11,11,12,.6),transparent 40%)}
+  .fw-grid{grid-template-columns:repeat(2,1fr);gap:30px 24px}
+}
+@media (max-width:1200px) and (min-width:961px){.fw-grid{gap:20px}}
+@media (max-width:560px){
+  .fw-grid{grid-template-columns:1fr}
+  .carousel-ctrl{gap:12px}
+  .cbtn{width:42px;height:42px}
+}
+
+/* ---------- white paper card ---------- */
+.paper-card{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:30px;align-items:center}
+@media (max-width:760px){.paper-card{grid-template-columns:1fr;gap:22px}.paper-card .btn{justify-self:start}}
+
+/* ---------- touch: no sticky hover shifts ---------- */
+@media (hover:none){
+  .trigger:hover,.lite .trigger:hover{padding-left:8px;background:none}
+  .qlist li:hover{padding-left:10px;background:none}
+  .foot-col a:hover{padding-left:0}
+}
+</style>
+
+<div class="progress" id="progress"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><img src="https://cdn.katalyst-crm.com/a/31efe6d5-5381-4087-9e67-0bbefed82aeb" alt="Ronnie Barnard"> <span>Technology Initiative Advisor</span></a>
+    <nav class="navlinks">
+      <a href="#how">How I Work</a>
+      <a href="#results">Results</a>
+      <a href="#investors">For Investors</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#about">About</a>
+      <a href="#paper">White Paper</a>
+      <a class="nav-cta" href="#contact">Book a conversation →</a>
+    </nav>
+    <a class="btn ghost" href="#paper">White Paper</a>
+    <a class="btn solid" href="#contact">Book a conversation <span class="arw">→</span></a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><svg class="i-bars" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero hasbg">
+    <div class="bgfx">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_35bf64fa-faab-4b63-a106-701e1f06b3ec.png">
+        <source src="https://cdn.katalyst-crm.com/a/2a7a5474-6d47-c90c-8423-80e934b5dd43" type="video/mp4">
+      </video>
+    </div>
+    <div class="wrap">
+      <span class="pill"><b>Advisory</b> For CEOs, CTOs, boards, and investors</span>
+      <h1 class="type">The right technology decision starts with finding <u>the real constraint.</u></h1>
+      <p class="p1">When an important initiative is underperforming, or a major technology or investment decision is on the table, the obvious technology answer may not be the right one. I find what is really in the way, determine what should change, and guide your team to measurable progress.</p>
+      <div class="cta-row">
+        <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
+        <a class="btn ghost" href="#investors">For investors and advisors <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap strip rv">Independent technology judgment. <em>No predetermined solution to sell.</em></div>
+  </section>
+
+  <!-- CREDIBILITY -->
+  <section>
+    <div class="wrap band">
+      <div class="cred-intro">
+        <div class="cred-portrait rv"><img src="https://cdn.katalyst-crm.com/a/d6992164-a6fc-25d3-d6e5-70fbad1d93e6" alt="Ronnie Barnard" loading="lazy"></div>
+        <div class="cred-lead rv">
+          <p class="eyebrow">Ronnie Barnard</p>
+          <p class="cred-statement">I’m an independent Technology Initiative Advisor with more than <b>30 years</b> of experience, from hands-on engineering to the CTO and CIO seat. Leaders bring me in when the stakes are high, the path forward is unclear, or an important initiative isn’t delivering.</p>
+        </div>
+      </div>
+
+      <div class="cred-proof rv">
+        <h2 class="h2 type cred-h2" style="text-align:center;max-width:none;margin-inline:auto">Trusted when the stakes are high</h2>
+        <div class="cred-cards">
+          <div class="ccard"><span class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div class="ck">30+ years</div><div class="cv">in software, architecture, and technology leadership</div></div>
+          <div class="ccard"><span class="cico"><svg viewBox="0 0 24 24"><path d="M8 7 4 12l4 5M16 7l4 5-4 5M13 5l-2 14"/></svg></span><div class="ck">Boardroom to code</div><div class="cv">CTO, CIO, chief architect, and hands-on engineering experience</div></div>
+          <div class="ccard"><span class="cico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18"/></svg></span><div class="ck">4 continents</div><div class="cv">of hands-on work in complex technology businesses</div></div>
+          <div class="ccard"><span class="cico"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.6-4.8 2.6.9-5.4L4.2 8.7l5.4-.8z"/></svg></span><div class="ck">Patented</div><div class="cv">named inventor on a medical device patent</div></div>
+          <div class="ccard wide"><span class="cico"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9m4 11V5m4 15v-8m4 8V7"/></svg></span><div class="cv">Experience across financial services, compliance technology, state government, medical technology, SaaS, and PE/VC-backed growth companies.</div></div>
+          <div class="ccard wide"><span class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9.5 16h5"/></svg></span><div class="cv">The mind behind CLEO, the Florida Department of Corrections’ secure AI assistant featured in Government Technology.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE REAL PROBLEM -->
+  <section id="problem" class="lite">
+    <div class="wrap band">
+      <p class="eyebrow rv" style="text-align:center">The real problem</p>
+      <div class="problem-head rv">
+        <h2 class="h2 type">Sound familiar?</h2>
+        <p class="sub">High stakes. Mixed signals. No clear answer yet.</p>
+      </div>
+
+      <div class="marquee rv">
+        <div class="mtrack">
+          <span class="mq">“We’ve added developers, and we’re still behind.”</span>
+          <span class="mq">“We’re about to commit to a major transformation. Is it the right one?”</span>
+          <span class="mq">“We’re looking at an acquisition. Can the technology carry the plan?”</span>
+          <span class="mq">“Everyone wants AI. Does it actually make sense for us?”</span>
+          <span class="mq">“Growth is slowing, and we can’t tell whether technology is the cause.”</span>
+          <span class="mq">“We’ve spent a fortune, and we’re still not seeing the value.”</span>
+          <span class="mq" aria-hidden="true">“We’ve added developers, and we’re still behind.”</span>
+          <span class="mq" aria-hidden="true">“We’re about to commit to a major transformation. Is it the right one?”</span>
+          <span class="mq" aria-hidden="true">“We’re looking at an acquisition. Can the technology carry the plan?”</span>
+          <span class="mq" aria-hidden="true">“Everyone wants AI. Does it actually make sense for us?”</span>
+          <span class="mq" aria-hidden="true">“Growth is slowing, and we can’t tell whether technology is the cause.”</span>
+          <span class="mq" aria-hidden="true">“We’ve spent a fortune, and we’re still not seeing the value.”</span>
+        </div>
+      </div>
+
+      <p class="lede p-lede rv">Whether an initiative is falling short or a major decision is coming, you need to know what is really going on before you commit more.</p>
+
+      <div class="clamp2 rv" id="cl1">
+        <div class="cols">
+          <p>Each of these leads to a sensible response. A late initiative gets more project management. An overloaded team gets more developers. Slow reports get a new reporting tool. A struggling AI pilot gets more AI. A big decision gets the biggest option on the table.</p>
+          <p>But the place where a problem shows up is rarely the place where it starts. The cause often sits somewhere else: in the architecture, the workflow, the data, the way teams are organized, or an assumption made years ago that nobody questions anymore.</p>
+          <p>It usually isn’t as simple as a talent problem. Capable teams can still get trapped working around the wrong constraint.</p>
+        </div>
+        <button class="more" data-clamp="cl1">Read more <span class="chev">▾</span></button>
+      </div>
+
+      <p class="h2 rv" style="margin:clamp(56px,7vw,88px) auto 0;max-width:34ch;text-align:center;font-family:var(--display);letter-spacing:-.035em;line-height:1.04">The technology problem you see is rarely the problem you need to solve.</p>
+
+      <div class="stats">
+        <div class="stat rv">
+          <div class="n"><span data-count="48">48</span>%</div>
+          <div class="d">of digital initiatives meet or exceed their business targets. The rest fall short.</div>
+          <div class="src">Gartner survey of 3,100+ CIOs and 1,100+ executives, 2024</div>
+        </div>
+        <div class="stat rv">
+          <div class="n"><span data-count="45">45</span>%</div>
+          <div class="d">average budget overrun on large IT projects, which also deliver 56% less value than predicted.</div>
+          <div class="src">McKinsey and University of Oxford study of 5,400+ IT projects</div>
+        </div>
+        <div class="stat rv">
+          <div class="n"><span data-count="95">95</span>%</div>
+          <div class="d">of generative AI pilots show no measurable impact on profit and loss.</div>
+          <div class="src">MIT NANDA, The GenAI Divide, 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap strip rv">The investment is there. The value isn’t. <em>That gap is where I work.</em></div>
+  </section>
+
+  <!-- WHAT YOU GET BACK -->
+  <section id="value" class="lite">
+    <div class="wrap band">
+      <p class="eyebrow rv">What you get back</p>
+      <div class="split">
+        <div class="rv"><h2 class="h2 type">What’s in it for you</h2></div>
+        <div class="stack rv">
+          <p class="sub">Here’s what you get back.</p>
+          <p class="lede">An initiative that isn’t delivering costs more than money. Remove what’s really blocking it, and you recover what it’s been taking from you.</p>
+        </div>
+      </div>
+
+      <div class="vget rv">
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><path d="M5 20V9m7 11V4m7 16v-7"/></svg></span>
+          <div class="vtext">
+            <h3>A credible path to launch</h3>
+            <p class="vk">Delivery, timeline, evidence.</p>
+            <p class="vd">Understand what is preventing delivery, what must change, and what timeline the evidence supports.</p>
+          </div>
+        </div>
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg></span>
+          <div class="vtext">
+            <h3>Your budget</h3>
+            <p class="vk">Spend where it changes the result.</p>
+            <p class="vd">Stop funding fixes aimed at the wrong problem. Spend where it changes the result.</p>
+          </div>
+        </div>
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0M16 6a3 3 0 0 1 0 6M18 19a6 6 0 0 0-2-4.5"/></svg></span>
+          <div class="vtext">
+            <h3>Your team’s momentum</h3>
+            <p class="vk">Alignment, priorities, fewer arguments.</p>
+            <p class="vd">One shared explanation of the problem, clear priorities, and far fewer arguments about what’s wrong.</p>
+          </div>
+        </div>
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v5c0 4.5-3.2 8.3-8 10-4.8-1.7-8-5.5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div class="vtext">
+            <h3>Your board’s confidence</h3>
+            <p class="vk">Evidence-backed answers.</p>
+            <p class="vd">A clear, evidence-backed answer to “What’s really wrong, and what are we doing about it?”</p>
+          </div>
+        </div>
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><path d="M4 18 10 11l4 4 6-8"/><path d="M15 7h5v5"/></svg></span>
+          <div class="vtext">
+            <h3>A clearer path to scale</h3>
+            <p class="vk">Onboarding, capacity, growth.</p>
+            <p class="vd">Identify what is constraining onboarding, capacity, reporting or growth; and what must change to remove it.</p>
+          </div>
+        </div>
+        <div class="vcell">
+          <span class="vi"><svg viewBox="0 0 24 24"><path d="M12 3v7M12 21v-4"/><circle cx="12" cy="13.5" r="3.5"/><path d="M5 7h5M14 7h5"/></svg></span>
+          <div class="vtext">
+            <h3>Decision confidence</h3>
+            <p class="vk">Continue, change, or stop.</p>
+            <p class="vd">Know what to continue, change, or stop, and exactly why.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:44px">
+        <p class="sub" style="max-width:34ch">Clarity first. Then confidence. Then progress.</p>
+        <a class="btn solid" href="#contact">Get an independent view <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY WORK WITH ME -->
+  <section id="why">
+    <div class="wrap band">
+      <p class="eyebrow rv">Why work with me</p>
+      <div class="split">
+        <div class="rv"><h2 class="h2 type">Be the leader who fixed the right problem.</h2></div>
+        <div class="stack rv">
+          <p class="lede">I don’t start with a prescribed solution. I start by finding what is really driving the outcome.</p>
+          <p class="mono-note">Here’s what that means for you:</p>
+        </div>
+      </div>
+
+      <div class="why-grid rv">
+        <div class="why-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_072622_db65ca8d-43e6-495b-994d-956558fbdfa6.png" alt="Senior technology executive" loading="lazy"></div>
+        <div class="acc">
+        <div class="item open">
+          <button class="trigger" aria-expanded="true"><span class="idx">01</span><span class="ttl"><span class="t">You stop paying for guesses</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>I don’t start with AI, a new platform, or more developers. The fix is chosen after the real problem is found, not before.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="idx">02</span><span class="ttl"><span class="t">The solution isn't decided in advance</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>I don't begin with AI, a platform replacement, a rebuild or more developers. The evidence determines what intervention makes sense.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="idx">03</span><span class="ttl"><span class="t">Your boardroom and your engineers hear the same story</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>I work with CEOs and boards on risk and investment, and with architects and engineers on how the system really behaves. Then I translate.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="idx">04</span><span class="ttl"><span class="t">You get the highest-leverage change that moves the result</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>Big problems don’t always need big transformation programs. The right change can sometimes unlock more value than a rebuild.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="idx">05</span><span class="ttl"><span class="t">You’re not left holding a report</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>Where needed, I stay involved through key decisions, implementation guidance and progress reviews.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="idx">06</span><span class="ttl"><span class="t">Your team gets a partner, not a critic</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>No blame and no ego. High-stakes work is demanding enough. I work alongside your people to find the cause and make it work.</p></div></div></div>
+        </div>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:40px;display:flex;flex-direction:column;gap:10px">
+        <p class="sub">While others are still debating the symptoms, you’ll be acting on the cause.</p>
+        <p class="mono-note">Find the constraint. Choose the right intervention. Move with evidence.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="wrap band">
+      <p class="eyebrow rv" style="text-align:center">Proof</p>
+      <div class="rv" style="text-align:center;max-width:64ch;margin-inline:auto">
+        <h2 class="h2 type">Results</h2>
+        <p class="sub" style="margin:16px auto 0">What looked wrong. What was actually wrong.</p>
+        <p class="lede" style="margin:10px auto 0;max-width:none">Three initiatives. Three problems hiding somewhere else.</p>
+      </div>
+
+      <div class="carousel rv" data-carousel>
+        <div class="carousel-viewport">
+          <div class="carousel-track">
+
+            <article class="slide" aria-roledescription="slide" aria-label="1 of 3">
+              <div class="slide-text">
+                <span class="slide-num">Case 01</span>
+                <span class="slide-tag">Financial services</span>
+                <h3 class="slide-title">Customer onboarding cut from 31 days to under 7.</h3>
+                <dl class="slide-body">
+                  <div><dt>What it looked like</dt><dd>Buggy software. The platform had started life as a prototype, and three developers were patching it directly in production. Every new customer brought more defects, manual work, and support calls.</dd></div>
+                  <div><dt>What it really was</dt><dd>A platform and a team never designed for scale. Growth was creating work faster than the business could absorb it.</dd></div>
+                  <div><dt>What changed</dt><dd>We stabilized the existing platform and, in parallel, built a replacement designed around each customer’s path through the business. The technology team grew from 3 people to more than 50 in about a year.</dd></div>
+                  <div><dt>The result</dt><dd>Onboarding fell from about 31 days to under 7, with straightforward cases processed in about 30 minutes. Monthly revenue grew to roughly 16 times its starting level. The technology didn’t create that growth alone. It removed the ceiling on it.</dd></div>
+                </dl>
+              </div>
+              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_884e83eb-038d-4cba-851f-f82940725a44.png" alt="Financial services onboarding transformation" loading="lazy"></div>
+            </article>
+
+            <article class="slide" aria-roledescription="slide" aria-label="2 of 3">
+              <div class="slide-text">
+                <span class="slide-num">Case 02</span>
+                <span class="slide-tag">Compliance technology</span>
+                <h3 class="slide-title">From one new customer a month to many at once.</h3>
+                <dl class="slide-body">
+                  <div><dt>What it looked like</dt><dd>A technology team working against the owner. The team said it could onboard only one new customer a month.</dd></div>
+                  <div><dt>What it really was</dt><dd>Each new customer meant rebuilding thousands of configuration settings by hand, even though customers in the same industry shared most of them.</dd></div>
+                  <div><dt>What changed</dt><dd>We created templates for each industry from existing clients and adjusted them. Within about a month, the onboarding ceiling was gone.</dd></div>
+                  <div><dt>The result</dt><dd>Customers could be onboarded in parallel. The company opened a U.S. operation, built a platform serving more than 10,000 users, and grew annual revenue from about $1.2 million to $3.8 million over four years.</dd></div>
+                </dl>
+              </div>
+              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_16ffc624-60c2-4d1f-8880-f7b9275fe859.png" alt="Compliance technology scaling" loading="lazy"></div>
+            </article>
+
+            <article class="slide" aria-roledescription="slide" aria-label="3 of 3">
+              <div class="slide-text">
+                <span class="slide-num">Case 03</span>
+                <span class="slide-tag">State government</span>
+                <h3 class="slide-title">A day and a half of analysis, answered in 20 seconds.</h3>
+                <dl class="slide-body">
+                  <div><dt>What it looked like</dt><dd>Slow reporting. The plan on the table was a better data warehouse.</dd></div>
+                  <div><dt>What it really was</dt><dd>The delay between a leader asking a new question and getting an answer. Every new question still waited in a developer’s queue.</dd></div>
+                  <div><dt>What changed</dt><dd>We built a secure AI layer over more than 5 billion records across about 20,000 fields. The agency’s report writers turned their knowledge of the data into definitions the AI could use.</dd></div>
+                  <div><dt>The result</dt><dd>Authorized staff can ask questions by text or voice and get answers in real time. One analysis that took an experienced employee about a day and a half was reproduced by the system in about 20 seconds.</dd></div>
+                </dl>
+              </div>
+              <div class="slide-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_ca305c2a-73c9-405e-a110-3fa14b5a2ee8.png" alt="State government secure AI layer" loading="lazy"></div>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="carousel-ctrl">
+          <button class="cbtn" data-prev aria-label="Previous case"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <div class="cdots" role="tablist" aria-label="Select case">
+            <button class="cdot is-active" data-go="0" role="tab" aria-selected="true" aria-label="Case 1"></button>
+            <button class="cdot" data-go="1" role="tab" aria-selected="false" aria-label="Case 2"></button>
+            <button class="cdot" data-go="2" role="tab" aria-selected="false" aria-label="Case 3"></button>
+          </div>
+          <button class="cbtn" data-next aria-label="Next case"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="cbtn cbtn-play" data-pause aria-label="Pause autoplay"><svg class="i-pause" viewBox="0 0 24 24"><rect x="7" y="5" width="3.4" height="14" rx="1"/><rect x="13.6" y="5" width="3.4" height="14" rx="1"/></svg><svg class="i-play" viewBox="0 0 24 24"><path d="M8 5l11 7-11 7z"/></svg></button>
+        </div>
+      </div>
+
+      <div class="card rv" style="margin-top:28px;padding:30px;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
+        <span class="ico" style="background:rgba(20,8,0,.14);border-color:rgba(20,8,0,.28);color:#140700"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <div class="k" style="font-size:1.4rem;color:#160800">Sometimes the answer comes fast.</div>
+        <p class="v" style="font-size:15px;line-height:1.65;color:rgba(20,8,0,.82)">A founding team hit a wall before launch. Their AI product kept giving confused, made-up answers, and nothing they tried fixed it. Thirty minutes into our first call, the cause was clear: the AI’s core instructions were being rewritten in the middle of each conversation. They launched a few weeks later.</p>
+        <p class="mono-note" style="margin-top:16px;color:rgba(20,8,0,.7)">Most engagements take longer. The discipline is the same.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="lite">
+    <div class="wrap band">
+      <p class="eyebrow rv">Testimonials</p>
+      <div class="split">
+        <div class="rv"><h2 class="h2 type">In their words</h2></div>
+        <div class="stack rv">
+          <p class="sub">From the people who’ve worked beside me.</p>
+          <p class="lede">A founding partner and a longtime colleague on what changes when I get involved.</p>
+        </div>
+      </div>
+
+      <div class="tgrid">
+        <div class="tcard rv">
+          <div class="mark">“</div>
+          <div class="clamp" id="t1">
+            <div class="body q">“I’ve worked with Ronnie as a collaborator inside the MyGentic ecosystem, and he’s the kind of partner you want when the work gets real. Ronnie doesn’t treat AI as a slide deck or a shiny demo. He thinks in systems. Strategy, leadership, and execution in the same conversation. He can sit with CEOs and technical leaders, cut through the noise, and land on what actually has to change for AI to create ROI instead of another pilot that dies in a committee. What I respect most is how he holds both sides: the deep technical curiosity (memory, architecture, what models can and can’t do) and the business reality (people, process, and whether the organization can absorb the change). That combination is rare.”</div>
+            <button class="more" data-clamp="t1">Read more <span class="chev">▾</span></button>
+          </div>
+          <div class="who">Wesley Longueira, Founding Partner, MyGentic</div>
+        </div>
+        <div class="tcard rv">
+          <div class="mark">“</div>
+          <div class="clamp" id="t2">
+            <div class="body q">“Before meeting Ronnie, I was focused primarily on execution and results. After working with him, my mindset around leadership, accountability, and long-term growth completely changed. Ronnie challenges people to think bigger, raise their standards, and become better versions of themselves, while still being incredibly supportive. I’m a stronger professional, and person, because of the time I’ve spent working with him.”</div>
+            <button class="more" data-clamp="t2">Read more <span class="chev">▾</span></button>
+          </div>
+          <div class="who">Marc Harting, worked with and for Ronnie since 2016</div>
+        </div>
+      </div>
+
+      <div class="rv" style="margin-top:44px">
+        <p class="eyebrow" style="margin-bottom:10px">Watch</p>
+        <p class="sub">Hear it directly from the people I’ve worked with.</p>
+        <div class="vthumbs">
+          <a class="vthumb" href="https://youtu.be/6vrQ37-Je2U" target="_blank" rel="noopener" aria-label="Watch video testimonial on YouTube">
+            <img src="https://img.youtube.com/vi/6vrQ37-Je2U/hqdefault.jpg" alt="" loading="lazy">
+            <span class="vplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></span>
+            <span class="vtag">Testimonial</span>
+          </a>
+          <a class="vthumb" href="https://youtube.com/shorts/Z0KR2uEWtDQ" target="_blank" rel="noopener" aria-label="Watch testimonial Short on YouTube">
+            <img src="https://img.youtube.com/vi/Z0KR2uEWtDQ/hqdefault.jpg" alt="" loading="lazy">
+            <span class="vplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></span>
+            <span class="vtag">Short</span>
+          </a>
+          <a class="vthumb" href="https://youtube.com/shorts/lFwXdfBn9Zw" target="_blank" rel="noopener" aria-label="Watch testimonial Short on YouTube">
+            <img src="https://img.youtube.com/vi/lFwXdfBn9Zw/hqdefault.jpg" alt="" loading="lazy">
+            <span class="vplay"><i><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></i></span>
+            <span class="vtag">Short</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FRAMEWORK -->
+  <section id="how" class="hasbg showcase">
+    <div class="bgfx" style="--img:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121355_fb165c3f-2e21-4b04-ba12-799e2f06af1e.png')"></div>
+    <div class="wrap band">
+      <p class="eyebrow rv" style="text-align:center">The Technology Unlock Framework</p>
+      <div class="fw-head">
+        <h2 class="h2 type">How I work</h2>
+        <p class="sub" style="margin-top:18px">Five steps from uncertainty to measurable value.</p>
+        <p class="lede" style="margin-top:22px">The Technology Unlock Framework is a disciplined sequence for initiatives that are underperforming, overcomplicated, or not delivering the value expected. It starts with the business outcome you’re trying to reach, not with a technology someone has already chosen.</p>
+      </div>
+
+      <div class="fw-grid rv">
+        <div class="fw-col">
+          <div class="fw-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <span class="fw-step">Step 01</span>
+          <h3>Decode</h3>
+          <p class="fw-q">What is really happening?</p>
+          <p class="fw-d">I build a clear picture of the outcome you want, the system you have, and every fix already tried.</p>
+        </div>
+        <div class="fw-col">
+          <div class="fw-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <span class="fw-step">Step 02</span>
+          <h3>Isolate</h3>
+          <p class="fw-q">What is actually holding it back?</p>
+          <p class="fw-d">Most struggling initiatives show dozens of visible problems. Usually only one or two are limiting everything else.</p>
+        </div>
+        <div class="fw-col">
+          <div class="fw-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <span class="fw-step">Step 03</span>
+          <h3>Reframe</h3>
+          <p class="fw-q">What problem should we be solving?</p>
+          <p class="fw-d">We redefine the problem around its real cause. That may confirm the current plan, change it, or stop it.</p>
+        </div>
+        <div class="fw-col">
+          <div class="fw-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <span class="fw-step">Step 04</span>
+          <h3>Unlock</h3>
+          <p class="fw-q">What must change now?</p>
+          <p class="fw-d">We identify and guide the change with the greatest leverage — architecture, workflow, team structure, automation, AI, or a single decision.</p>
+        </div>
+        <div class="fw-col">
+          <div class="fw-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+          <span class="fw-step">Step 05</span>
+          <h3>Realize</h3>
+          <p class="fw-q">What can the business do now that it couldn’t before?</p>
+          <p class="fw-d">Success is measured in business outcomes: launches, productivity, capacity, risk reduction, growth, and investment value. Not in software shipped.</p>
+        </div>
+      </div>
+
+      <p class="mono-note rv" style="margin-top:28px">Experience spots the pattern fast. Evidence earns the fix.</p>
+
+      <div class="card rv paper-card" id="paper" style="margin-top:34px;padding:clamp(26px,4.2vw,48px);background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
+        <div>
+          <p style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#180a00;margin:0 0 12px">Read the full method</p>
+          <div class="k" style="font-size:clamp(1.4rem,2.7vw,2.05rem);max-width:32ch;margin-top:0;color:#160800">Technology Unlock Framework: Finding the Constraint Behind the Symptom</div>
+          <p class="v" style="max-width:72ch;font-size:15px;color:rgba(20,8,0,.82)">The white paper covers why capable teams get trapped fixing symptoms, the five steps in detail, three full case studies, and how to tell when you need an outside diagnosis and when you don’t.</p>
+        </div>
+        <a class="btn" href="#contact" style="background:#140700;color:#fff;border-color:transparent">Download the white paper <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVESTORS -->
+  <section id="investors" class="hasbg">
+    <div class="bgfx" style="--img:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_e2d58cd8-6f00-4e3d-b549-864fbb3a2f4f.png');--op:.58"></div>
+    <div class="wrap band">
+      <div class="inv-grid">
+        <div class="rv">
+          <p class="eyebrow">For investors and advisors</p>
+          <h2 class="h2 type">For PE, VC, and investment partners</h2>
+          <p class="sub" style="margin-top:18px">Know what the technology can really carry before you commit the capital.</p>
+          <p style="font-family:var(--display);font-size:1.1rem;letter-spacing:-.02em;color:#d6d6dd;margin-top:18px">Have experienced technology judgment available when the findings need to become action</p>
+          <p class="lede" style="margin-top:16px">Demos, roadmaps, and management presentations tell one story. The architecture, the data, and the team tell the real one. I look past the pitch to answer the questions your investment depends on:</p>
+        </div>
+        <ul class="qlist rv">
+          <li>Can this technology deliver what management says it can?</li>
+          <li>What will break as the company scales?</li>
+          <li>What hidden constraint could stall the investment thesis?</li>
+          <li>How much capital or restructuring will the fix really take?</li>
+          <li>Is the company solving the right problem?</li>
+        </ul>
+      </div>
+
+      <div class="split" style="margin-top:40px">
+        <div class="stack rv">
+          <p class="lede">After the deal, I can work with founders, boards, operating partners, and engineering leaders to remove what diligence uncovered, recover stalled initiatives, and confirm that the value was actually created.</p>
+          <p class="mono-note">Investigate before. Intervene where needed. Verify the value.</p>
+        </div>
+        <div class="stack rv">
+          <p class="lede">Bring me in as the senior technology advisor on your deal or advisory team. You get independent, experienced judgment inside a portfolio company without building that capability in-house.</p>
+          <div><a class="btn solid" href="#contact">Discuss a portfolio company <span class="arw">→</span></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENTS -->
+  <section id="engagements">
+    <div class="wrap band">
+      <p class="eyebrow rv">The engagements</p>
+      <div class="split">
+        <div class="rv"><h2 class="h2 type">Ways to work together</h2></div>
+        <div class="stack rv">
+          <p class="sub">Start with a clear diagnosis. Go as far as you need.</p>
+          <p class="lede">Every engagement is led by me personally, delivered mostly remotely, and built around one question: what is actually preventing this from succeeding?</p>
+        </div>
+      </div>
+
+      <div class="eng-wrap rv">
+        <div class="eng-nav">
+          <button data-eprev aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button data-enext aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="eng-track" data-eng-track>
+        <article class="ecard">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_2d46667c-7ff0-489a-91ed-67d49aa4e826.png" alt="Technology Initiative Diagnostic" loading="lazy"></div>
+          <div class="ecard-body">
+            <span class="ecard-num">01</span>
+            <div class="ecard-head">
+              <span class="ecard-rule"></span>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4.5 4.5"/></svg></span>
+              <h3>Technology Initiative Diagnostic</h3>
+              <p class="efor">For: Leaders who need to know why an important initiative isn’t delivering as expected.</p>
+            </div>
+            <div class="ecard-detail"><p><b>What happens:</b> Executive and team interviews, a review of goals and progress to date, an assessment of past fixes, and a look at architecture and team structure where relevant.</p><p><b>You leave with:</b> A clear, evidence-based answer to what’s actually stopping progress, presented in an executive findings session and documented with key risks.</p><p><b>Format:</b> Defined scope, not open-ended. Delivered remotely.</p></div>
+          </div>
+        </article>
+        <article class="ecard feat">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_eedf669c-ad26-46e1-9d6b-b08455004544.png" alt="Technology Initiative Diagnostic + Direction" loading="lazy"></div>
+          <div class="ecard-body">
+            <span class="ecard-num">02</span>
+            <div class="ecard-head">
+              <span class="ecard-rule"></span>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
+              <span class="ecard-badge">Recommended starting point</span><h3>Technology Initiative Diagnostic + Direction</h3>
+              <p class="efor">For: Leaders who know they need to act and want to act on the right thing.</p>
+            </div>
+            <div class="ecard-detail"><p><b>What happens:</b> Everything in the Diagnostic, plus a reframed problem statement, options, a recommended direction, priorities, decision points, sequencing, ownership, and initial implementation guidance.</p><p><b>You leave with:</b> What’s really wrong, what should change, and what happens next.</p></div>
+          </div>
+        </article>
+        <article class="ecard">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112545_929c32d4-503e-4d27-b0df-86156c4be0e8.png" alt="Technology Initiative Guided Unlock" loading="lazy"></div>
+          <div class="ecard-body">
+            <span class="ecard-num">03</span>
+            <div class="ecard-head">
+              <span class="ecard-rule"></span>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0"/><rect x="4" y="11" width="16" height="9" rx="3"/><path d="M12 15v2"/></svg></span>
+              <h3>Technology Initiative Guided Unlock</h3>
+              <p class="efor">For: Organizations that want me alongside while the fix is carried out.</p>
+            </div>
+            <div class="ecard-detail"><p><b>What happens:</b> Executive advisory sessions, architecture guidance, progress reviews, course correction, knowledge transfer, and team training. AI guidance where AI is the right answer.</p><p><b>You leave with:</b> Measurable progress, tracked against the business outcome agreed at the start.</p><p><b>Format:</b> Mostly remote. From a short intervention to several months, generally no more than six.</p></div>
+          </div>
+        </article>
+        <article class="ecard">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_d890434c-bc42-4867-ad89-d8fa2a01f4e5.png" alt="Executive Technology Advisory" loading="lazy"></div>
+          <div class="ecard-body">
+            <span class="ecard-num">04</span>
+            <div class="ecard-head">
+              <span class="ecard-rule"></span>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></span>
+              <h3>Executive Technology Advisory</h3>
+              <p class="efor">For: CEOs, boards, and founders facing consequential technology decisions.</p>
+            </div>
+            <div class="ecard-detail"><p><b>Typical questions:</b> Continue, redirect, or stop? Stabilize, rebuild, or replace? Is the roadmap credible? Is AI the right move here?</p><p><b>You leave with:</b> Experienced, independent judgment before you commit, including a Reframe Document: the new problem definition, the future architecture that removes the constraint, and the roadmap to get there.</p></div>
+          </div>
+        </article>
+        <article class="ecard">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112545_e7c415b5-8c68-4f65-916d-dbd7027dc0d4.png" alt="Investment &amp; Portfolio Technology Advisory" loading="lazy"></div>
+          <div class="ecard-body">
+            <span class="ecard-num">05</span>
+            <div class="ecard-head">
+              <span class="ecard-rule"></span>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-5m5 5V9m5 11v-8"/><path d="M4 8l6-4 4 3 6-4"/></svg></span>
+              <h3>Investment &amp; Portfolio Technology Advisory</h3>
+              <p class="efor">For: PE and VC firms, operating partners, and advisory teams.</p>
+            </div>
+            <div class="ecard-detail"><p><b>Pre-investment:</b> Technical and product diligence covering scalability, architecture, team, technology risk, and the assumptions behind the investment.</p><p><b>Post-investment:</b> Portfolio technology assessment, constraint identification, technology value creation, and intervention when key initiatives stall.</p><p><b>You leave with:</b> A clear view of whether the technology can carry the investment thesis, and what it will take to get there.</p></div>
+          </div>
+        </article>
+        </div>
+      </div>
+
+      <div class="rv" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:36px">
+        <p class="note">I work hands-on with your leaders and technology teams. I don’t supply developers or outsourced build capacity.</p>
+        <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="lite">
+    <div class="wrap band">
+      <div class="about-grid">
+        <div class="about-media rv"><img src="https://cdn.katalyst-crm.com/a/daa8446b-dc29-3a32-b791-0ae119bde698" alt="Ronnie Barnard" loading="lazy"></div>
+        <div class="about-copy rv">
+          <p class="eyebrow">About Ronnie</p>
+          <h2 class="h2 type">What you see depends on where you stand.</h2>
+          <p class="lede" style="margin-top:20px">I grew up on a farm in South Africa, far from city lights. Every night, the Milky Way filled the sky. The first time I looked up from a city, I could count the stars on two hands. The others hadn’t gone anywhere. The noise was hiding them.</p>
+          <p style="font-family:var(--display);font-size:1.15rem;letter-spacing:-.02em;color:var(--fg);max-width:46ch;margin-top:16px">Technology initiatives work the same way. The cause is usually there. It’s just buried under the noise.</p>
+          <div class="clamp" id="ab" style="margin-top:16px">
+            <div class="body">
+              <p>I wrote my first business system at nine: bookkeeping and point of sale for my mother’s shop, saved on cassette tape. She ran her shop on it for a long time.</p>
+              <p style="margin-top:14px">Since then, I’ve worked as a developer, architect, CTO, CIO, and advisor across four continents. I was employee number nine at a medical device company that grew from about $300,000 to $80 million in annual revenue in under five years, and I helped launch three versions of its product. I’ve designed a world-first electronic vehicle identification system and high-volume financial platforms, and architected AI that turned a state agency’s data into answers on demand.</p>
+              <p style="margin-top:14px">At every level, I saw the same pattern: capable people working hard on the wrong problem, getting better at working around it instead of removing it. That frustration became my work.</p>
+              <p style="margin-top:14px">Today I work from Dallas-Fort Worth, Texas, with clients in the U.S. and beyond. I take on a small number of engagements each year, so every client gets my full attention.</p>
+            </div>
+            <button class="more" data-clamp="ab">Read more <span class="chev">▾</span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="creds rv">
+        <div class="cred"><div class="ct">Best Technologist of the Year</div><div class="cd">CSIR, South Africa, 1996</div></div>
+        <div class="cred"><div class="ct">Named inventor</div><div class="cd">on a medical device patent and three related publications</div></div>
+        <div class="cred"><div class="ct">Stanford Who’s Who</div><div class="cd">Honored Member, Executive Professionals and Entrepreneurs, 2011</div></div>
+        <div class="cred"><div class="ct">Co-Founder</div><div class="cd">Infogility AI</div></div>
+        <div class="cred"><div class="ct">CTO-level technical leader</div><div class="cd">MyGentic</div></div>
+        <div class="cred"><div class="ct">STEM advocate</div><div class="cd">Co-hosted a space and science event for high school students with Ontario International Airport’s Pathways program, 2020</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <section id="gallery" class="lite" aria-label="Photo gallery">
+    <div class="gallery">
+      <div class="gtrack"><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="lite">
+    <div class="wrap band">
+      <p class="eyebrow rv" style="text-align:center">FAQ</p>
+      <div class="rv" style="text-align:center"><h2 class="h2 type">Questions leaders ask</h2></div>
+
+      <div class="acc rv" style="max-width:760px;margin:clamp(36px,5vw,52px) auto 0">
+        <div class="item open">
+          <button class="trigger" aria-expanded="true"><span class="ttl"><span class="t">What does a Technology Initiative Advisor do?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>I’m Ronnie Barnard, an independent Technology Initiative Advisor based in Dallas-Fort Worth, Texas. I help CEOs, boards, and investors understand what is really preventing technology from delivering the business outcome they expect. I bring more than 30 years of CTO, CIO, architecture, and hands-on technology experience to high-stakes initiatives, investment decisions, and portfolio-company challenges. I don’t sell software or development capacity. I provide the independent judgment needed to find the real constraint, decide what should change, and stay involved where needed until progress is measurable.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">When should I bring in an independent technology advisor?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>When an important initiative isn’t delivering the value expected, when a major technology or investment decision is coming, or when capable people strongly disagree about what the problem is. Common signs include budget or headcount rising without proportional progress, slipping milestones, costs or support volume growing faster than customers, and AI pilots that never reach production. If the problem is already well understood and you simply need more hands, you may not need me.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">Are you an AI consultant or a fractional CTO?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>Not primarily. I work at the point where technology strategy, architecture, and business outcomes meet. Sometimes that includes fractional CTO/CIO leadership, but usually around a specific business challenge, transformation, or high-stakes decision rather than simply running the technology department.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">Do you work with private equity and venture capital firms?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>Yes. PE and VC firms, operating partners, and advisory teams bring me in for independent technology diligence before an investment and to identify or remove technology constraints inside portfolio companies afterward. That can include architecture, scalability, engineering capability, data, AI readiness, technical debt, and the technology assumptions behind the investment thesis.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">Do you provide development teams or outsourced implementation?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>No. I can work deeply with architecture, data, AI, and engineering teams, but I don’t sell developer capacity. I work with your team and your chosen partners to make sure the right problem is being solved and the solution stays aligned with the business outcome.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">Where are you based, and do you work remotely?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>I’m based in Dallas-Fort Worth, Texas, and work with clients across the U.S. and internationally. Most of the work happens remotely through interviews, working sessions, and document and architecture reviews. I travel for short on-site periods when being in the room makes a real difference.</p></div></div></div>
+        </div>
+        <div class="item">
+          <button class="trigger" aria-expanded="false"><span class="ttl"><span class="t">How long does an engagement take?</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>A Diagnostic has a defined scope and is not open-ended. A Guided Unlock runs from a short intervention to several months, generally no longer than six.</p></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final hasbg" id="contact">
+    <div class="bgfx" style="--img:url('https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_293e440c-5b29-4e8a-a06b-97e536977588.png');--op:.62"></div>
+    <div class="wrap band">
+      <h2 class="h2 type rv" style="max-width:none;font-size:clamp(1.7rem,4vw,3rem);margin-inline:auto">Let’s find what’s really in the way.</h2>
+      <p class="lede rv" style="margin-top:22px;max-width:880px;margin-inline:auto;font-size:clamp(1.1rem,1.8vw,1.35rem)">Before you spend more time, money, or people on it, make sure you’re solving the right problem.</p>
+      <p class="lede rv" style="margin-top:16px;color:var(--dim);font-size:15px">Start with a confidential conversation. Tell me what’s not delivering the expected value, what’s been tried, and what it’s costing you. Not every difficult initiative needs an outside advisor. The conversation will show whether yours does.</p>
+      <div class="cta-row rv">
+        <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
+        <a class="btn ghost" href="#paper">Download the white paper <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="foot-name"><img src="https://cdn.katalyst-crm.com/a/31efe6d5-5381-4087-9e67-0bbefed82aeb" alt="Ronnie Barnard"> <span>Technology Initiative Advisor</span></div>
+        <p class="tagline">Find the real constraint. Reframe the problem. Restore progress.</p>
+        <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Explore</h4>
+          <a href="#how">How I Work</a>
+          <a href="#results">Results</a>
+          <a href="#investors">For Investors</a>
+          <a href="#engagements">Engagements</a>
+        </div>
+        <div class="foot-col">
+          <h4>More</h4>
+          <a href="#about">About</a>
+          <a href="#paper">White Paper</a>
+          <a href="#contact">Contact</a>
+          <a href="#contact">LinkedIn</a>
+        </div>
+        <div class="foot-col">
+          <h4>Based in</h4>
+          <p>Dallas-Fort Worth, Texas</p>
+          <p>Serving clients across the U.S. and worldwide</p>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ronnie Barnard. All rights reserved.</span>
+      <span>Find the constraint. Choose the right intervention. Move with evidence.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- mobile menu ---- */
+  var hdr = document.querySelector('header'), mb = hdr.querySelector('.menu-btn');
+  function setMenu(open){
+    hdr.classList.toggle('open', open);
+    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+    mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  mb.addEventListener('click', function(){ setMenu(!hdr.classList.contains('open')); });
+  hdr.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
+  document.addEventListener('click', function(e){ if (!hdr.contains(e.target)) setMenu(false); });
+
+  /* ---- toggles: accordions, cases, benefit cards, read-more ---- */
+  document.addEventListener('click', function(e){
+    var t = e.target.closest('.trigger, .bhead');
+    if (t){
+      var box = t.closest('.item, .case, .benefit');
+      if (box.classList.contains('open')) return; /* stays open; only closes when another opens */
+      var group = box.parentElement;
+      group.querySelectorAll(':scope > .open').forEach(function(s){
+        s.classList.remove('open');
+        var bt = s.querySelector('.trigger, .bhead');
+        if (bt) bt.setAttribute('aria-expanded', 'false');
+      });
+      box.classList.add('open');
+      t.setAttribute('aria-expanded', 'true');
+      return;
+    }
+    var m = e.target.closest('.more');
+    if (m){
+      var c = document.getElementById(m.dataset.clamp);
+      var isOpen = c.classList.toggle('open');
+      m.innerHTML = (isOpen ? 'Read less' : 'Read more') + ' <span class="chev">▾</span>';
+    }
+  });
+
+  /* ---- results carousel ---- */
+  document.querySelectorAll('[data-carousel]').forEach(function(car){
+    var track = car.querySelector('.carousel-track');
+    var slides = car.querySelectorAll('.slide');
+    var dots = car.querySelectorAll('.cdot');
+    var i = 0, n = slides.length, timer = null, paused = reduced;
+    function render(){
+      track.style.transform = 'translateX(' + (-i * 100) + '%)';
+      dots.forEach(function(d, k){
+        d.classList.toggle('is-active', k === i);
+        d.setAttribute('aria-selected', k === i ? 'true' : 'false');
+      });
+    }
+    function go(k){ i = (k + n) % n; render(); }
+    function next(){ go(i + 1); }
+    function prev(){ go(i - 1); }
+    function start(){ if (paused) return; stop(); timer = setInterval(next, 6000); }
+    function stop(){ if (timer){ clearInterval(timer); timer = null; } }
+    car.querySelector('[data-next]').addEventListener('click', function(){ next(); start(); });
+    car.querySelector('[data-prev]').addEventListener('click', function(){ prev(); start(); });
+    dots.forEach(function(d){ d.addEventListener('click', function(){ go(+d.dataset.go); start(); }); });
+    var pb = car.querySelector('[data-pause]');
+    pb.addEventListener('click', function(){
+      paused = !paused;
+      car.classList.toggle('is-paused', paused);
+      pb.setAttribute('aria-label', paused ? 'Play autoplay' : 'Pause autoplay');
+      if (paused) stop(); else start();
+    });
+    car.addEventListener('mouseenter', stop);
+    car.addEventListener('mouseleave', start);
+    var vp = car.querySelector('.carousel-viewport'), sx = 0, sy = 0;
+    vp.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; stop(); }, {passive:true});
+    vp.addEventListener('touchend', function(e){
+      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)();
+      start();
+    }, {passive:true});
+    if (paused) car.classList.add('is-paused');
+    render();
+    start();
+  });
+
+  /* ---- engagements carousel arrows ---- */
+  document.querySelectorAll('[data-eng-track]').forEach(function(track){
+    var wrap = track.closest('.eng-wrap');
+    function step(){ var c = track.querySelector('.ecard'); return c ? c.getBoundingClientRect().width + 22 : track.clientWidth*0.8; }
+    var pv = wrap.querySelector('[data-eprev]'), nx = wrap.querySelector('[data-enext]');
+    if (pv) pv.addEventListener('click', function(){ track.scrollBy({left:-step(),behavior:'smooth'}); });
+    if (nx) nx.addEventListener('click', function(){ track.scrollBy({left:step(),behavior:'smooth'}); });
+  });
+
+  /* ---- scroll progress ---- */
+  var bar = document.getElementById('progress');
+  function prog(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', prog, {passive:true});
+  window.addEventListener('resize', prog);
+  prog();
+
+  if (!('IntersectionObserver' in window) || reduced){
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+
+  /* ---- scroll reveal, staggered per group ---- */
+  var revealObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target, sibs, i = 0;
+      if (el.parentElement){
+        sibs = Array.prototype.filter.call(el.parentElement.children, function(c){ return c.classList.contains('rv'); });
+        i = Math.min(sibs.indexOf(el), 5);
+      }
+      el.style.transitionDelay = (i * 70) + 'ms';
+      el.classList.add('in');
+      revealObs.unobserve(el);
+    });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  document.querySelectorAll('.rv').forEach(function(el){ revealObs.observe(el); });
+
+  /* ---- count-up ---- */
+  var countObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      var el = en.target, target = parseInt(el.dataset.count, 10), start = null;
+      countObs.unobserve(el);
+      function step(ts){
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / 1100, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, {threshold:0.5});
+  document.querySelectorAll('[data-count]').forEach(function(el){ countObs.observe(el); });
+
+  /* ---- typing headlines with orange caret ---- */
+  function chunksOf(el){
+    var out = [];
+    Array.prototype.forEach.call(el.childNodes, function(n){
+      if (n.nodeType === 3){ out.push({tag:null, text:n.textContent}); }
+      else { out.push({tag:n.tagName.toLowerCase(), text:n.textContent}); }
+    });
+    return out;
+  }
+  function render(el, chunks, count){
+    var html = '', used = 0;
+    for (var i = 0; i < chunks.length; i++){
+      var c = chunks[i], left = count - used;
+      if (left <= 0) break;
+      var slice = c.text.slice(0, left);
+      var safe = slice.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+      html += c.tag ? '<' + c.tag + '>' + safe + '</' + c.tag + '>' : safe;
+      used += slice.length;
+    }
+    el.innerHTML = html + '<span class="caret"></span>';
+  }
+  function typeIt(el){
+    var chunks = chunksOf(el);
+    var total = chunks.reduce(function(a, c){ return a + c.text.length; }, 0);
+    el.style.minHeight = el.offsetHeight + 'px';
+    var speed = el.tagName === 'H1' ? 26 : 17, i = 0;
+    render(el, chunks, 0);
+    var timer = setInterval(function(){
+      i += 1;
+      render(el, chunks, i);
+      if (i >= total){
+        clearInterval(timer);
+        setTimeout(function(){
+          var car = el.querySelector('.caret');
+          if (car) car.remove();
+          el.style.minHeight = '';
+        }, 1400);
+      }
+    }, speed);
+  }
+  var typeObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if (!en.isIntersecting) return;
+      typeObs.unobserve(en.target);
+      typeIt(en.target);
+    });
+  }, {threshold:0.6});
+  document.querySelectorAll('.type').forEach(function(el){ typeObs.observe(el); });
+})();
+</script>
+
+</body></html>
