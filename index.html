@@ -1,10 +1,33 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
-<title>Ronnie Barnard Advisory</title>
-<meta name="description" content="Ronnie Barnard, independent Technology Initiative Advisor. Find the real constraint, decide what should change, and move to measurable progress.">
+<!doctype html><html lang="en"><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}
+/* ---------- legal dialogs ---------- */
+.foot-legal{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;border-radius:3px}
+.linkbtn:hover{color:var(--accent)}
+.linkbtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+dialog.legal{border:1px solid var(--line);border-radius:16px;background:var(--surface);
+  color:var(--fg);padding:0;max-width:min(92vw,720px);width:100%;max-height:86vh;overflow:auto}
+dialog.legal::backdrop{background:rgba(0,0,0,.72)}
+.legal-in{padding:clamp(24px,4vw,44px);position:relative}
+.legal-x{position:absolute;top:14px;right:16px;background:none;border:0;color:var(--muted);
+  font-size:30px;line-height:1;cursor:pointer;padding:4px 8px;border-radius:8px}
+.legal-x:hover{color:var(--fg)}
+.legal-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.legal-in h2{font-family:var(--display);font-size:clamp(1.6rem,3vw,2.1rem);letter-spacing:-.025em;margin:0 0 6px}
+.legal-in h3{font-size:1rem;letter-spacing:.01em;margin:26px 0 8px;color:var(--accent)}
+.legal-in p{margin:0 0 10px;color:var(--muted);line-height:1.65;font-size:.96rem}
+.legal-in a{color:var(--accent)}
+.legal-date{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.skip{position:absolute;left:-9999px;top:0;z-index:999;background:var(--accent-btn);color:#fff;
+  padding:12px 20px;border-radius:0 0 10px 0;font-size:14px;font-weight:600;text-decoration:none}
+.skip:focus{left:0}
+</style></head><body>
+<a class="skip" href="#top">Skip to main content</a>
+<title>Ronnie Barnard — Technology Initiative Advisor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
-</head><body>
 <style>
 /* Layout: single dark column, full-bleed hairline bands, 12-col bento grids inside a 1180px wrap */
 :root{
@@ -14,9 +37,11 @@
   --line:rgba(255,255,255,.13);
   --line-soft:rgba(255,255,255,.07);
   --fg:#fafafa;
-  --muted:#8c8c94;
-  --dim:#5c5c64;
+  --muted:#9a9aa2;
+  --dim:#85858d;
   --accent:#FF6A1F;
+  --accent-btn:#FF6A1F;
+  --accent-ink:#FF6A1F;
   --accent-hi:#FF8B4D;
   --accent-soft:rgba(255,106,31,.13);
   --accent-line:rgba(255,106,31,.42);
@@ -47,13 +72,17 @@ section{border-top:1px solid var(--line-soft)}
 .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 20px}
 .eyebrow::before{content:"";display:inline-block;width:18px;height:1px;background:var(--accent);vertical-align:middle;margin-right:10px;opacity:.7}
 .h2{font-size:clamp(2rem,4.4vw,3.25rem)}
+.beyond-h{font-family:var(--display);font-size:clamp(1.45rem,2.4vw,2rem);letter-spacing:-.025em;line-height:1.12;margin:0 0 14px;color:var(--fg)}
 .lede{color:var(--muted);font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:62ch;line-height:1.55}
 .sub{font-size:clamp(1.15rem,2vw,1.5rem);color:var(--fg);letter-spacing:-.02em;font-family:var(--display);max-width:40ch}
 .stack{display:flex;flex-direction:column;gap:22px}
 .mono-note{color:var(--dim);font-family:var(--mono);font-size:12.5px;letter-spacing:.06em}
 
 /* ---------- typing caret ---------- */
-.caret{display:inline-block;width:.075em;min-width:3px;height:.84em;background:var(--accent);margin-left:.09em;vertical-align:-.05em;border-radius:1px;box-shadow:0 0 14px rgba(255,106,31,.75);animation:blink 1.05s steps(1) infinite}
+.caret{display:inline-block;width:.075em;min-width:3px;height:.84em;background:var(--accent);margin-left:.09em;margin-right:calc(-.075em - 3px);vertical-align:-.05em;border-radius:1px;box-shadow:0 0 14px rgba(255,106,31,.75);animation:blink 1.05s steps(1) infinite}
+.tch{visibility:hidden}
+.type.done .tch{visibility:visible}
+@media (prefers-reduced-motion:reduce){.tch{visibility:visible}.caret{display:none;animation:none}}
 @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
 
 /* ---------- scroll progress ---------- */
@@ -66,7 +95,7 @@ section{border-top:1px solid var(--line-soft)}
 /* ---------- nav ---------- */
 header{position:absolute;top:0;left:0;right:0;z-index:50;background:transparent}
 header .wrap{max-width:min(1480px,calc(50vw + 590px))}
-.nav{display:flex;align-items:center;gap:22px;height:76px;position:relative}
+.nav{display:flex;align-items:center;gap:22px;height:76px}
 .brand{display:flex;align-items:center;gap:11px;font-family:var(--display);letter-spacing:-.02em;font-weight:600;font-size:16.5px;text-decoration:none;white-space:nowrap}
 .brand img{height:21px;width:auto;display:block;flex:none}
 .brand span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);font-weight:400;padding-left:11px;border-left:1px solid rgba(255,255,255,.3)}
@@ -74,43 +103,22 @@ header .wrap{max-width:min(1480px,calc(50vw + 590px))}
 .navlinks a{color:#fff;text-decoration:none;transition:color .2s,background .2s;padding:9px 15px;border-radius:999px;white-space:nowrap}
 .navlinks a:hover{color:#fff;background:rgba(255,255,255,.12)}
 .nav .btn{margin-left:2px}
-.navlinks .nav-cta{display:none}
-.menu-btn{display:none;width:42px;height:42px;flex:none;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:#fff;place-items:center;cursor:pointer;padding:0;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.menu-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.menu-btn .i-x,header.open .menu-btn .i-bars{display:none}
-header.open .menu-btn .i-x{display:block}
+@media (max-width:1040px){.navlinks{gap:0}.navlinks a{padding:9px 11px}}
 @media (max-width:1360px){.brand span{display:none}}
 @media (max-width:1200px){.nav .btn.ghost{display:none}}
-@media (max-width:1100px){
-  .menu-btn{display:grid}
-  .nav .btn.solid{margin-left:auto}
-  .navlinks{display:none;position:absolute;top:calc(100% - 4px);left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));flex-direction:column;gap:2px;margin:0;padding:10px;font-size:15px;background:rgba(11,11,12,.96);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.55)}
-  header.open .navlinks{display:flex}
-  .navlinks a{padding:13px 16px;border-radius:10px}
-}
+@media (max-width:900px){.navlinks{display:none}.nav .btn{margin-left:auto}}
 @media (max-width:620px){.brand img{height:20px}.nav{gap:12px;height:66px}.nav .btn.solid{padding:9px 15px;font-size:12px}}
-@media (max-width:440px){
-  .brand img{height:18px}
-  .nav .btn.solid{display:none}
-  .menu-btn{margin-left:auto}
-  .navlinks .nav-cta{display:flex;justify-content:center;margin-top:6px;background:var(--accent);color:#fff;font-weight:600}
-  .navlinks .nav-cta:hover{background:var(--accent-hi);color:#fff}
-}
+@media (max-width:360px){.brand img{height:18px}.nav .btn.solid .arw{display:none}}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,background .2s,border-color .2s,color .2s,box-shadow .2s;white-space:nowrap}
-.btn.solid{background:var(--accent);color:#fff;font-weight:600}
+.btn.solid{background:var(--accent-btn);color:#fff;font-weight:600}
 .btn.solid:hover{transform:translateY(-1px);background:var(--accent-hi);box-shadow:0 8px 26px rgba(255,106,31,.3)}
 .btn.ghost{border-color:var(--line);color:var(--fg)}
 .btn.ghost:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
 .btn .arw{transition:transform .2s}
 .btn:hover .arw{transform:translate(3px)}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
-@media (max-width:480px){
-  .btn{white-space:normal;text-align:center}
-  .hero .cta-row .btn,.final .cta-row .btn{width:100%;justify-content:center}
-  .pill{font-size:11.5px;margin-bottom:24px}
-}
 
 /* ---------- icons ---------- */
 .ico{width:38px;height:38px;flex:none;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;color:var(--accent);background:rgba(255,106,31,.06);transition:background .25s,border-color .25s,transform .25s}
@@ -286,7 +294,7 @@ h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offs
 .final.hasbg .bgfx::after{background:none}
 .final .wrap{position:relative;z-index:1;text-shadow:0 2px 20px rgba(0,0,0,.6)}
 .final .cta-row{justify-content:center;margin-top:34px}
-@media (min-width:1100px){.oneline{white-space:nowrap}}
+@media (min-width:900px){.oneline{white-space:nowrap}}
 .final .lede{margin-inline:auto}
 footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 40px;color:var(--muted);font-size:13.5px}
 .foot-top{display:grid;grid-template-columns:1.25fr 2fr;gap:clamp(34px,5vw,72px);align-items:start}
@@ -307,7 +315,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .lite{
   --bg:#f4f2ee;--surface:#ffffff;--surface-hi:#ffffff;
   --line:rgba(22,18,13,.15);--line-soft:rgba(22,18,13,.08);
-  --fg:#17130d;--muted:#5d584f;--dim:#8d877c;
+  --fg:#17130d;--muted:#5d584f;--dim:#6f695e;
   background:var(--bg);color:var(--fg)
 }
 .lite .panel p{color:#4b463d}
@@ -317,21 +325,20 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .charcoal{
   --bg:#17181b;--surface:#1e1f23;--surface-hi:#26272c;
   --line:rgba(255,255,255,.14);--line-soft:rgba(255,255,255,.08);
-  --fg:#f5f5f7;--muted:#a4a4ac;--dim:#74747c;
+  --fg:#f5f5f7;--muted:#a4a4ac;--dim:#85858d;
   background:var(--bg);color:var(--fg)
 }
 .lite .stat .d{color:#4b463d}
 .lite .stat:hover{background:linear-gradient(180deg,rgba(255,106,31,.06),transparent)}
 
-/* ---------- marquee ---------- */
-.marquee{overflow:hidden;margin-top:46px;position:relative;padding-block:8px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
-.mtrack{display:flex;align-items:center;gap:30px;width:max-content;animation:scrollx 52s linear infinite}
-.marquee:hover .mtrack{animation-play-state:paused}
-.mq{flex:none;font-family:var(--display);font-size:clamp(1.3rem,2.7vw,2.05rem);letter-spacing:-.025em;color:var(--accent);white-space:nowrap;display:flex;align-items:center;gap:30px}
-.mq::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--accent);opacity:.5;flex:none}
-@keyframes scrollx{to{transform:translateX(-50%)}}
+/* ---------- client quotes (static, readable - no motion) ---------- */
+.qgrid{margin-top:clamp(34px,4.5vw,52px);display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:700px){.qgrid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(min-width:1100px){.qgrid{grid-template-columns:repeat(3,1fr)}}
+.qgrid .mq{margin:0;font-family:var(--display);font-size:clamp(1.02rem,1.5vw,1.22rem);
+  line-height:1.45;letter-spacing:-.015em;color:#FFA875;background:rgba(255,106,31,.07);
+  border:1px solid var(--accent-line);border-left:3px solid var(--accent);
+  border-radius:12px;padding:clamp(16px,2vw,22px) clamp(16px,2.2vw,24px)}
 
 /* ---------- problem 2-col ---------- */
 .problem-head{text-align:center;max-width:60ch;margin:0 auto}
@@ -424,7 +431,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 }
 @media (max-width:640px){
   .ecard-media img,.slide-media img{object-position:center 25%}
-  .gitem img{object-position:center 18%}
+  .pc-item img{object-position:center 22%}
 }
 .creds{margin-top:clamp(30px,4vw,48px);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(32px,5vw,64px)}
 .cred{padding:13px 0;border-top:1px solid var(--line-soft)}
@@ -433,16 +440,24 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 @media(max-width:860px){.about-grid{grid-template-columns:1fr}.about-media{position:static;aspect-ratio:3/4;max-height:540px}}
 @media(max-width:700px){.creds{grid-template-columns:1fr}}
 
-/* ---------- Moving gallery strip (right to left) ---------- */
-.gallery{overflow:hidden;position:relative;padding-block:clamp(30px,4vw,52px);
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.gtrack{display:flex;gap:18px;width:max-content;animation:gscroll 70s linear infinite}
-.gallery:hover .gtrack{animation-play-state:paused}
-.gitem{flex:none;width:clamp(230px,25vw,350px);aspect-ratio:3/2;border-radius:14px;overflow:hidden;border:1px solid var(--line-soft);background:#0a0a0b}
-.gitem img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;transition:transform .6s cubic-bezier(.4,0,.1,1)}
-.gitem:hover img{transform:scale(1.05)}
-@keyframes gscroll{to{transform:translateX(-50%)}}
+/* ---------- Photo rows (2 rows, slightly varied widths) ---------- */
+.pmosaic{display:flex;flex-direction:column;gap:12px}
+.pm-row{display:flex;gap:12px}
+.pm-item{margin:0;position:relative;overflow:hidden;border-radius:14px;flex:1 1 0;min-width:0;
+  border:1px solid var(--line-soft);background:#0a0a0b;aspect-ratio:4/3}
+.pm-item img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;
+  transition:transform .6s cubic-bezier(.4,0,.1,1)}
+.pm-item:hover img{transform:scale(1.05)}
+@media(min-width:780px){
+  .pmosaic{gap:14px}
+  .pm-row{gap:14px;height:clamp(210px,20.5vw,300px)}
+  .pm-item{aspect-ratio:auto;height:100%}
+}
+@media(max-width:779px){
+  .pm-row{flex-wrap:wrap}
+  .pm-item{flex:1 1 44%}
+}
+.lite .pm-item{background:#eceae4}
 
 /* ---------- Framework showcase (full-bleed over image) ---------- */
 .showcase{overflow:hidden}
@@ -474,11 +489,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
 /* ---------- Engagements: image-top cards in a carousel ---------- */
 .eng-wrap{position:relative;margin-top:clamp(40px,5vw,56px)}
-.eng-nav{display:flex;justify-content:flex-end;gap:12px;margin-bottom:18px}
+.eng-nav{position:absolute;top:-70px;right:0;display:flex;gap:12px}
 .eng-nav button{width:48px;height:48px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.02);color:var(--fg);display:grid;place-items:center;cursor:pointer;transition:border-color .25s,background .25s,transform .25s}
 .eng-nav button:hover{border-color:var(--accent-line);background:var(--accent-soft);transform:translateY(-1px)}
 .eng-nav button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .eng-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(340px,1fr);gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none}
+@media(min-width:1100px){.eng-track{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;scroll-snap-type:none}
+  .eng-nav{display:none}}
 .eng-track::-webkit-scrollbar{display:none}
 .ecard{scroll-snap-align:start;background:var(--surface);border:1px solid var(--accent-line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
 .ecard:hover{border-color:var(--accent);transform:translateY(-3px)}
@@ -499,10 +516,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .ecard-detail{text-align:left;width:100%;border-top:1px solid var(--accent-line);padding-top:11px;display:flex;flex-direction:column;gap:9px}
 .ecard-detail p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
 .ecard-detail b{color:var(--fg)}
-@media (max-width:620px){.eng-track{grid-auto-columns:minmax(260px,86%)}.ecard-head{min-height:0}.ecard-body{padding:40px 22px 26px}}
+.ecard-list{list-style:none;margin:2px 0 4px;padding:0;display:flex;flex-direction:column;gap:7px}
+.ecard-list li{position:relative;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.5}
+.ecard-list li::before{content:"";position:absolute;left:0;top:.56em;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.ecard .egain{margin-top:2px}
+@media (max-width:620px){.eng-track{grid-auto-columns:minmax(280px,85%)}.eng-nav{position:static;justify-content:flex-end;margin-bottom:18px}.ecard-head{min-height:0}}
 
 /* ---------- Gallery light theme override ---------- */
-.lite .gitem{background:#eceae4;border-color:var(--line-soft)}
 
 /* ---------- Investors 2-col ---------- */
 .inv-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:start;margin-top:8px}
@@ -515,22 +535,9 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   .slide-media::after{background:linear-gradient(0deg,rgba(11,11,12,.6),transparent 40%)}
   .fw-grid{grid-template-columns:repeat(2,1fr);gap:30px 24px}
 }
-@media (max-width:1200px) and (min-width:961px){.fw-grid{gap:20px}}
 @media (max-width:560px){
   .fw-grid{grid-template-columns:1fr}
   .carousel-ctrl{gap:12px}
-  .cbtn{width:42px;height:42px}
-}
-
-/* ---------- white paper card ---------- */
-.paper-card{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:30px;align-items:center}
-@media (max-width:760px){.paper-card{grid-template-columns:1fr;gap:22px}.paper-card .btn{justify-self:start}}
-
-/* ---------- touch: no sticky hover shifts ---------- */
-@media (hover:none){
-  .trigger:hover,.lite .trigger:hover{padding-left:8px;background:none}
-  .qlist li:hover{padding-left:10px;background:none}
-  .foot-col a:hover{padding-left:0}
 }
 </style>
 
@@ -546,26 +553,24 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
       <a href="#engagements">Engagements</a>
       <a href="#about">About</a>
       <a href="#paper">White Paper</a>
-      <a class="nav-cta" href="#contact">Book a conversation →</a>
     </nav>
     <a class="btn ghost" href="#paper">White Paper</a>
     <a class="btn solid" href="#contact">Book a conversation <span class="arw">→</span></a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><svg class="i-bars" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <!-- HERO -->
   <section class="hero hasbg">
     <div class="bgfx">
-      <video class="hero-vid" autoplay muted loop playsinline preload="auto">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
         <source src="https://cdn.katalyst-crm.com/a/fb3aa6a7-8f8b-d212-1365-8bd7a6905447" type="video/mp4">
       </video>
     </div>
     <div class="wrap">
       <span class="pill"><b>Advisory</b> For CEOs, CTOs, boards, and investors</span>
-      <h1 class="type">The right technology decision starts with finding <u>the real constraint.</u></h1>
+      <h1 class="type">When the stakes are high, solving <u>the right problem</u> changes everything.</h1>
       <p class="p1">When an important initiative is underperforming, or a major technology or investment decision is on the table, the obvious technology answer may not be the right one. I find what is really in the way, determine what should change, and guide your team to measurable progress.</p>
       <div class="cta-row">
         <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
@@ -574,10 +579,31 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     </div>
   </section>
 
-  <!-- GALLERY STRIP -->
-  <section id="gallery" aria-label="Photo gallery">
-    <div class="gallery">
-      <div class="gtrack"><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/f83b170e-f35e-e54c-68a5-a367bc52091c" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/e0cb48ee-c679-3672-984b-882319b0f63b" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="" loading="lazy"></div><div class="gitem"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="" loading="lazy"></div></div>
+  <!-- PHOTO ROWS - two rows of four, slightly varied widths (flex-grow). Duplicate crowd shot removed. -->
+  <section id="gallery" aria-label="Ronnie Barnard at work">
+    <div class="wrap band" style="padding-block:clamp(30px,4vw,54px)">
+      <div class="pmosaic rv">
+        <div class="pm-row">
+          <!-- VR demonstration -->
+          <figure class="pm-item" style="flex-grow:1.18"><img src="https://cdn.katalyst-crm.com/a/70b77ffe-c707-c994-1e56-3c7dff571657" alt="Ronnie Barnard and a colleague trying a VR technology demonstration" loading="lazy" style="object-position:center 35%"></figure>
+          <!-- panel discussion -->
+          <figure class="pm-item" style="flex-grow:0.92"><img src="https://cdn.katalyst-crm.com/a/c6751f0f-25f9-437c-33e8-96ad47b8d108" alt="Ronnie Barnard on a "Make Data Work for You" panel with other technology leaders" loading="lazy" style="object-position:center 46%"></figure>
+          <!-- Florida DOC site -->
+          <figure class="pm-item" style="flex-grow:1.22"><img src="https://cdn.katalyst-crm.com/a/1f2e0459-30f8-f8e1-1de4-c89a2f812f53" alt="Ronnie Barnard with a colleague at a Florida Department of Corrections site" loading="lazy" style="object-position:center 20%"></figure>
+          <!-- remote advisory call -->
+          <figure class="pm-item" style="flex-grow:0.84"><img src="https://cdn.katalyst-crm.com/a/d225bb20-da76-2a8c-942a-559f3cecd3e3" alt="Ronnie Barnard on a video advisory call with a remote team" loading="lazy" style="object-position:left 30%"></figure>
+        </div>
+        <div class="pm-row">
+          <!-- training audience -->
+          <figure class="pm-item" style="flex-grow:0.9"><img src="https://cdn.katalyst-crm.com/a/b6694cc5-6659-efad-f037-9966bdb93c23" alt="Ronnie Barnard presenting to a large training audience" loading="lazy" style="object-position:center 42%"></figure>
+          <!-- event hall -->
+          <figure class="pm-item" style="flex-grow:1.2"><img src="https://cdn.katalyst-crm.com/a/89fa177f-1e97-12b2-4037-9648f6ef3c2f" alt="Ronnie Barnard with attendees at an industry event" loading="lazy" style="object-position:center 60%"></figure>
+          <!-- hangar / aircraft group -->
+          <figure class="pm-item" style="flex-grow:0.95"><img src="https://cdn.katalyst-crm.com/a/a6bfcbce-151f-6f34-f6b1-72c9a45cfad2" alt="Ronnie Barnard with colleagues in front of an aircraft" loading="lazy" style="object-position:center 30%"></figure>
+          <!-- whiteboard discussion -->
+          <figure class="pm-item" style="flex-grow:1.14"><img src="https://cdn.katalyst-crm.com/a/0f6cfac1-2977-2921-19db-8a679e4d8fa8" alt="Ronnie Barnard in a whiteboard discussion with two colleagues" loading="lazy" style="object-position:center 26%"></figure>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -611,6 +637,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
           <div class="ccard wide"><span class="cico"><svg viewBox="0 0 24 24"><path d="M3 20h18M6 20V9m4 11V5m4 15v-8m4 8V7"/></svg></span><div class="cv">Experience across financial services, compliance technology, state government, medical technology, SaaS, and PE/VC-backed growth companies.</div></div>
           <div class="ccard wide"><span class="cico"><svg viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 7V4M9 12h.01M15 12h.01M9.5 16h5"/></svg></span><div class="cv">The mind behind CLEO, the Florida Department of Corrections’ secure AI assistant featured in Government Technology.</div></div>
         </div>
+
       </div>
     </div>
   </section>
@@ -625,21 +652,13 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         <p class="sub">High stakes. Mixed signals. No clear answer yet.</p>
       </div>
 
-      <div class="marquee rv">
-        <div class="mtrack">
-          <span class="mq">“We’ve added developers, and we’re still behind.”</span>
-          <span class="mq">“We’re about to commit to a major transformation. Is it the right one?”</span>
-          <span class="mq">“We’re looking at an acquisition. Can the technology carry the plan?”</span>
-          <span class="mq">“Everyone wants AI. Does it actually make sense for us?”</span>
-          <span class="mq">“Growth is slowing, and we can’t tell whether technology is the cause.”</span>
-          <span class="mq">“We’ve spent a fortune, and we’re still not seeing the value.”</span>
-          <span class="mq" aria-hidden="true">“We’ve added developers, and we’re still behind.”</span>
-          <span class="mq" aria-hidden="true">“We’re about to commit to a major transformation. Is it the right one?”</span>
-          <span class="mq" aria-hidden="true">“We’re looking at an acquisition. Can the technology carry the plan?”</span>
-          <span class="mq" aria-hidden="true">“Everyone wants AI. Does it actually make sense for us?”</span>
-          <span class="mq" aria-hidden="true">“Growth is slowing, and we can’t tell whether technology is the cause.”</span>
-          <span class="mq" aria-hidden="true">“We’ve spent a fortune, and we’re still not seeing the value.”</span>
-        </div>
+      <div class="qgrid rv">
+          <blockquote class="mq">“We’ve added developers, and we’re still behind.”</blockquote>
+          <blockquote class="mq">“We’re about to commit to a major transformation. Is it the right one?”</blockquote>
+          <blockquote class="mq">“We’re looking at an acquisition. Can the technology carry the plan?”</blockquote>
+          <blockquote class="mq">“Everyone wants AI. Does it actually make sense for us?”</blockquote>
+          <blockquote class="mq">“Growth is slowing, and we can’t tell whether technology is the cause.”</blockquote>
+          <blockquote class="mq">“We’ve spent a fortune, and we’re still not seeing the value.”</blockquote>
       </div>
 
       <p class="lede p-lede rv">Whether an initiative is falling short or a major decision is coming, you need to know what is really going on before you commit more.</p>
@@ -678,7 +697,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   </section>
 
   <section>
-    <div class="wrap strip rv">The investment is there. The value isn’t. <em>That gap is where I work.</em></div>
+    <div class="wrap strip rv">The investment is there. The value isn’t always. <em>That gap is where I work.</em></div>
   </section>
 
   <!-- WHAT YOU GET BACK -->
@@ -689,7 +708,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         <div class="rv"><h2 class="h2 type">What’s in it for you</h2></div>
         <div class="stack rv">
           <p class="sub">Here’s what you get back.</p>
-          <p class="lede">An initiative that isn’t delivering costs more than money. Remove what’s really blocking it, and you recover what it’s been taking from you.</p>
+          <p class="lede">The right technology decisions create clarity, protect investment, align leadership, and open the path to meaningful business progress.</p>
         </div>
       </div>
 
@@ -767,8 +786,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         <div class="why-media"><img src="https://cdn.katalyst-crm.com/a/d6992164-a6fc-25d3-d6e5-70fbad1d93e6" alt="Senior technology executive" loading="lazy"></div>
         <div class="acc">
         <div class="item open">
-          <button class="trigger" aria-expanded="true"><span class="idx">01</span><span class="ttl"><span class="t">You stop paying for guesses</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
-          <div class="panel"><div class="inner"><div class="pad"><p>I don’t start with AI, a new platform, or more developers. The fix is chosen after the real problem is found, not before.</p></div></div></div>
+          <button class="trigger" aria-expanded="true"><span class="idx">01</span><span class="ttl"><span class="t">You make decisions based on evidence</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
+          <div class="panel"><div class="inner"><div class="pad"><p>You gain clarity on what’s actually causing the problem, so you can make informed decisions instead of committing more time and money to solutions that may not work.</p></div></div></div>
         </div>
         <div class="item">
           <button class="trigger" aria-expanded="false"><span class="idx">02</span><span class="ttl"><span class="t">The solution isn't decided in advance</span></span><span class="sign"><svg viewBox="0 0 12 12"><path d="M6 1v10M1 6h10"/></svg></span></button>
@@ -794,7 +813,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
       </div>
 
       <div class="rv" style="margin-top:40px;display:flex;flex-direction:column;gap:10px">
-        <p class="sub">While others are still debating the symptoms, you’ll be acting on the cause.</p>
+        <p class="sub">A different perspective can change the direction of a decision.</p>
         <p class="mono-note">Find the constraint. Choose the right intervention. Move with evidence.</p>
       </div>
     </div>
@@ -878,7 +897,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         <span class="ico" style="background:rgba(20,8,0,.14);border-color:rgba(20,8,0,.28);color:#140700"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>
         <div class="k" style="font-size:clamp(1.6rem,2.4vw,2rem);color:#160800">Sometimes the answer comes fast.</div>
         <p class="v" style="font-size:clamp(1.05rem,1.4vw,1.2rem);line-height:1.6;color:rgba(20,8,0,.84);max-width:78ch">A founding team hit a wall before launch. Their AI product kept giving confused, made-up answers, and nothing they tried fixed it. Thirty minutes into our first call, the cause was clear: the AI’s core instructions were being rewritten in the middle of each conversation. They launched a few weeks later.</p>
-        <p class="mono-note" style="margin-top:18px;font-size:13px;color:rgba(20,8,0,.72)">Most engagements take longer. The discipline is the same.</p>
+        <p class="mono-note" style="margin-top:18px;font-size:13px;color:rgba(20,8,0,.86)">Most engagements take longer. The discipline is the same.</p>
       </div>
     </div>
   </section>
@@ -988,7 +1007,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
       <p class="mono-note rv" style="margin-top:28px">Experience spots the pattern fast. Evidence earns the fix.</p>
 
-      <div class="card rv paper-card" id="paper" style="margin-top:34px;padding:clamp(26px,4.2vw,48px);background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
+      <div class="card rv" id="paper" style="margin-top:34px;padding:clamp(30px,4.2vw,48px);display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:30px;align-items:center;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
         <div>
           <p style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#180a00;margin:0 0 12px">Read the full method</p>
           <div class="k" style="font-size:clamp(1.4rem,2.7vw,2.05rem);max-width:32ch;margin-top:0;color:#160800">Technology Unlock Framework: Finding the Constraint Behind the Symptom</div>
@@ -1022,11 +1041,11 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
       <div class="split" style="margin-top:40px">
         <div class="stack rv">
-          <p class="lede">After the deal, I can work with founders, boards, operating partners, and engineering leaders to remove what diligence uncovered, recover stalled initiatives, and confirm that the value was actually created.</p>
-          <p class="mono-note">Investigate before. Intervene where needed. Verify the value.</p>
+          <h3 class="beyond-h">Beyond the investment.</h3>
+          <p class="lede">My involvement doesn’t have to end at diligence. I also work with founders, boards, and portfolio leadership to address identified risks, strengthen technology capability, and support value creation.</p>
         </div>
         <div class="stack rv">
-          <p class="lede">Bring me in as the senior technology advisor on your deal or advisory team. You get independent, experienced judgment inside a portfolio company without building that capability in-house.</p>
+          <p class="mono-note">Investigate before. Intervene where needed. Verify the value.</p>
           <div><a class="btn solid" href="#contact">Discuss a portfolio company <span class="arw">→</span></a></div>
         </div>
       </div>
@@ -1040,8 +1059,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
       <div class="split">
         <div class="rv"><h2 class="h2 type">Ways to work together</h2></div>
         <div class="stack rv">
-          <p class="sub">Start with a clear diagnosis. Go as far as you need.</p>
-          <p class="lede">Every engagement is led by me personally, delivered mostly remotely, and built around one question: what is actually preventing this from succeeding?</p>
+          <p class="sub">The right expertise, at the right moment.</p>
+          <p class="lede">Whether you’re facing a critical technology decision, an underperforming initiative, or evaluating an investment, I bring the experience and judgment to help you determine the right way forward.</p>
         </div>
       </div>
 
@@ -1052,75 +1071,49 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
         </div>
         <div class="eng-track" data-eng-track>
         <article class="ecard">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_2d46667c-7ff0-489a-91ed-67d49aa4e826.png" alt="Technology Initiative Diagnostic" loading="lazy"></div>
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_2d46667c-7ff0-489a-91ed-67d49aa4e826.png" alt="Strategic Technology Advisory" loading="lazy"></div>
           <div class="ecard-body">
             <span class="ecard-num">01</span>
             <div class="ecard-head">
               <span class="ecard-rule"></span>
-              <span class="ecard-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4.5 4.5"/></svg></span>
-              <h3>Technology Initiative Diagnostic</h3>
-              <p class="efor">For: Leaders who need to know why an important initiative isn’t delivering as expected.</p>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></span>
+              <h3>Strategic Technology Advisory</h3>
+              <p class="efor">For CEOs, founders, and boards</p>
             </div>
-            <div class="ecard-detail"><p><b>What happens:</b> Executive and team interviews, a review of goals and progress to date, an assessment of past fixes, and a look at architecture and team structure where relevant.</p><p><b>You leave with:</b> A clear, evidence-based answer to what’s actually stopping progress, presented in an executive findings session and documented with key risks.</p><p><b>Format:</b> Defined scope, not open-ended. Delivered remotely.</p></div>
+            <div class="ecard-detail"><p>Independent advice to navigate complex technology decisions, evaluate options, and establish a clear direction.</p><ul class="ecard-list"><li>Technology strategy and investment decisions</li><li>AI adoption and platform modernization</li><li>Executive and board-level advisory</li></ul><p class="egain"><b>What you gain:</b> A clear understanding of your options, the risks and trade-offs involved, and a practical direction supported by evidence.</p></div>
           </div>
         </article>
-        <article class="ecard feat">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_eedf669c-ad26-46e1-9d6b-b08455004544.png" alt="Technology Initiative Diagnostic + Direction" loading="lazy"><span class="ecard-badge">Recommended starting point</span></div>
+        <article class="ecard">
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_eedf669c-ad26-46e1-9d6b-b08455004544.png" alt="Technology Unlock Engagements" loading="lazy"></div>
           <div class="ecard-body">
             <span class="ecard-num">02</span>
             <div class="ecard-head">
               <span class="ecard-rule"></span>
-              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3"/></svg></span>
-              <h3>Technology Initiative Diagnostic + Direction</h3>
-              <p class="efor">For: Leaders who know they need to act and want to act on the right thing.</p>
+              <span class="ecard-ico"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="m16 16 4.5 4.5"/></svg></span>
+              <h3>Technology Unlock Engagements</h3>
+              <p class="efor">For leaders of critical initiatives</p>
             </div>
-            <div class="ecard-detail"><p><b>What happens:</b> Everything in the Diagnostic, plus a reframed problem statement, options, a recommended direction, priorities, decision points, sequencing, ownership, and initial implementation guidance.</p><p><b>You leave with:</b> What’s really wrong, what should change, and what happens next.</p></div>
+            <div class="ecard-detail"><p>Identify what’s holding an important initiative back, determine what needs to change, and guide progress.</p><ul class="ecard-list"><li>Diagnose the constraint and establish a clear understanding of the problem.</li><li>Translate the findings into recommended actions, priorities, and next steps.</li><li>Guide decisions, execution, and measure progress.</li></ul><p class="egain"><b>What you gain:</b> Clarity on what needs to change, confidence in the direction, and a way to assess progress against the intended business outcome.</p></div>
           </div>
         </article>
         <article class="ecard">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112545_929c32d4-503e-4d27-b0df-86156c4be0e8.png" alt="Technology Initiative Guided Unlock" loading="lazy"></div>
+          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112545_929c32d4-503e-4d27-b0df-86156c4be0e8.png" alt="Investment and Portfolio Technology Advisory" loading="lazy"></div>
           <div class="ecard-body">
             <span class="ecard-num">03</span>
             <div class="ecard-head">
               <span class="ecard-rule"></span>
-              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0"/><rect x="4" y="11" width="16" height="9" rx="3"/><path d="M12 15v2"/></svg></span>
-              <h3>Technology Initiative Guided Unlock</h3>
-              <p class="efor">For: Organizations that want me alongside while the fix is carried out.</p>
-            </div>
-            <div class="ecard-detail"><p><b>What happens:</b> Executive advisory sessions, architecture guidance, progress reviews, course correction, knowledge transfer, and team training. AI guidance where AI is the right answer.</p><p><b>You leave with:</b> Measurable progress, tracked against the business outcome agreed at the start.</p><p><b>Format:</b> Mostly remote. From a short intervention to several months, generally no more than six.</p></div>
-          </div>
-        </article>
-        <article class="ecard">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112544_d890434c-bc42-4867-ad89-d8fa2a01f4e5.png" alt="Executive Technology Advisory" loading="lazy"></div>
-          <div class="ecard-body">
-            <span class="ecard-num">04</span>
-            <div class="ecard-head">
-              <span class="ecard-rule"></span>
-              <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></span>
-              <h3>Executive Technology Advisory</h3>
-              <p class="efor">For: CEOs, boards, and founders facing consequential technology decisions.</p>
-            </div>
-            <div class="ecard-detail"><p><b>Typical questions:</b> Continue, redirect, or stop? Stabilize, rebuild, or replace? Is the roadmap credible? Is AI the right move here?</p><p><b>You leave with:</b> Experienced, independent judgment before you commit, including a Reframe Document: the new problem definition, the future architecture that removes the constraint, and the roadmap to get there.</p></div>
-          </div>
-        </article>
-        <article class="ecard">
-          <div class="ecard-media"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261021_112545_e7c415b5-8c68-4f65-916d-dbd7027dc0d4.png" alt="Investment &amp; Portfolio Technology Advisory" loading="lazy"></div>
-          <div class="ecard-body">
-            <span class="ecard-num">05</span>
-            <div class="ecard-head">
-              <span class="ecard-rule"></span>
               <span class="ecard-ico"><svg viewBox="0 0 24 24"><path d="M3 20h18M7 20v-5m5 5V9m5 11v-8"/><path d="M4 8l6-4 4 3 6-4"/></svg></span>
-              <h3>Investment &amp; Portfolio Technology Advisory</h3>
-              <p class="efor">For: PE and VC firms, operating partners, and advisory teams.</p>
+              <h3>Investment & Portfolio Technology Advisory</h3>
+              <p class="efor">For PE, VC, and investment partners</p>
             </div>
-            <div class="ecard-detail"><p><b>Pre-investment:</b> Technical and product diligence covering scalability, architecture, team, technology risk, and the assumptions behind the investment.</p><p><b>Post-investment:</b> Portfolio technology assessment, constraint identification, technology value creation, and intervention when key initiatives stall.</p><p><b>You leave with:</b> A clear view of whether the technology can carry the investment thesis, and what it will take to get there.</p></div>
+            <div class="ecard-detail"><p>Independent technology insight to assess investment risks, support acquisition decisions, and strengthen portfolio value.</p><ul class="ecard-list"><li>Pre-investment technology diligence</li><li>Scalability, engineering, and technology risk</li><li>Post-investment strategy and value creation</li></ul><p class="egain"><b>What you gain:</b> A clearer view of technology capability, investment risks, potential constraints, and the actions or capital required to support the business plan.</p></div>
           </div>
         </article>
         </div>
       </div>
 
       <div class="rv" style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;margin-top:36px">
-        <p class="note">I work hands-on with your leaders and technology teams. I don’t supply developers or outsourced build capacity.</p>
+        <p class="note"><b style="color:var(--fg)">Not sure where to start?</b> Let’s discuss the decision or challenge you’re facing.</p>
         <a class="btn solid" href="#contact">Book a confidential conversation <span class="arw">→</span></a>
       </div>
     </div>
@@ -1130,7 +1123,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <section id="about" class="charcoal">
     <div class="wrap band">
       <div class="about-grid">
-        <div class="about-media rv"><img src="https://cdn.katalyst-crm.com/a/daa8446b-dc29-3a32-b791-0ae119bde698" alt="Ronnie Barnard" loading="lazy"></div>
+        <div class="about-media rv"><img src="https://cdn.katalyst-crm.com/a/dcfc2390-90f1-85be-3a7b-03e53cd6bd6a" alt="Portrait of Ronnie Barnard" loading="lazy"></div>
         <div class="about-copy rv">
           <p class="eyebrow">About Ronnie</p>
           <h2 class="h2 type">What you see depends on where you stand.</h2>
@@ -1150,7 +1143,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
             <div class="cred"><div class="ct">Named inventor</div><div class="cd">on a medical device patent and three related publications</div></div>
             <div class="cred"><div class="ct">Stanford Who’s Who</div><div class="cd">Honored Member, Executive Professionals and Entrepreneurs, 2011</div></div>
             <div class="cred"><div class="ct">Co-Founder</div><div class="cd">Infogility AI</div></div>
-            <div class="cred"><div class="ct">CTO-level technical leader</div><div class="cd">MyGentic</div></div>
+            <div class="cred"><div class="ct">CTO-level technology advisor</div><div class="cd">MyGentic</div></div>
             <div class="cred"><div class="ct">STEM advocate</div><div class="cd">Co-hosted a space and science event for high school students with Ontario International Airport’s Pathways program, 2020</div></div>
           </div>
         </div>
@@ -1201,7 +1194,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   <!-- FINAL CTA -->
   <section class="final hasbg" id="contact">
     <div class="bgfx">
-      <video class="hero-vid" autoplay muted loop playsinline preload="auto" poster="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_293e440c-5b29-4e8a-a06b-97e536977588.png">
+      <video class="hero-vid" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1" poster="https://d8j0ntlcm91z4.cloudfront.net/user_35NBuSfIPglHIOMZxxqoxDRFcyj/hf_20261020_121357_293e440c-5b29-4e8a-a06b-97e536977588.png">
         <source src="https://cdn.katalyst-crm.com/a/2a7a5474-6d47-c90c-8423-80e934b5dd43" type="video/mp4">
       </video>
     </div>
@@ -1249,26 +1242,71 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     </div>
     <div class="foot-bottom">
       <span>© 2026 Ronnie Barnard. All rights reserved.</span>
+      <span class="foot-legal">
+        <button type="button" class="linkbtn" data-legal="terms">Terms of Use</button>
+        <span aria-hidden="true">·</span>
+        <button type="button" class="linkbtn" data-legal="privacy">Privacy Policy</button>
+      </span>
       <span>Find the constraint. Choose the right intervention. Move with evidence.</span>
     </div>
   </div>
+
+  <dialog class="legal" id="legal-terms" aria-labelledby="legal-terms-h">
+    <div class="legal-in">
+      <button type="button" class="legal-x" data-legal-close aria-label="Close">×</button>
+      <h2 id="legal-terms-h">Terms of Use</h2>
+      <p class="legal-date">Last updated: October 2026</p>
+      <h3>About this site</h3>
+      <p>This website is operated by Ronnie Barnard, an independent Technology Initiative Advisor based in Dallas-Fort Worth, Texas. By accessing or using this site you agree to these Terms of Use. If you do not agree, please do not use the site.</p>
+      <h3>No advisory relationship</h3>
+      <p>The content on this site is provided for general information only. It does not constitute technology, investment, legal, or financial advice, and it does not create an advisory or client relationship. An advisory relationship is formed only through a signed written engagement agreement.</p>
+      <h3>No reliance</h3>
+      <p>Case examples, results, and figures describe past engagements and are illustrative. They are not a prediction or guarantee of any particular outcome. Every organisation differs, and you should not act on the content of this site without obtaining advice specific to your circumstances.</p>
+      <h3>Intellectual property</h3>
+      <p>All content on this site, including text, frameworks, graphics, and the Technology Unlock Framework, is owned by Ronnie Barnard unless stated otherwise. You may view and share the material for personal or internal business use. You may not reproduce, republish, or use it commercially without prior written permission.</p>
+      <h3>Third-party links</h3>
+      <p>This site may link to third-party websites and embedded media. Those sites are not under our control, and we are not responsible for their content, availability, or privacy practices.</p>
+      <h3>Limitation of liability</h3>
+      <p>To the fullest extent permitted by law, Ronnie Barnard accepts no liability for any loss or damage arising from the use of, or reliance on, this website or its content.</p>
+      <h3>Changes</h3>
+      <p>These terms may be updated from time to time. The version published on this page is the version in force.</p>
+      <h3>Contact</h3>
+      <p>Questions about these terms can be sent to <a href="mailto:ronnie@ronniebarnard.com">ronnie@ronniebarnard.com</a>.</p>
+    </div>
+  </dialog>
+
+  <dialog class="legal" id="legal-privacy" aria-labelledby="legal-privacy-h">
+    <div class="legal-in">
+      <button type="button" class="legal-x" data-legal-close aria-label="Close">×</button>
+      <h2 id="legal-privacy-h">Privacy Policy</h2>
+      <p class="legal-date">Last updated: October 2026</p>
+      <h3>Who we are</h3>
+      <p>This site is operated by Ronnie Barnard, Technology Initiative Advisor, Dallas-Fort Worth, Texas. We are the controller of personal information collected through this site.</p>
+      <h3>What we collect</h3>
+      <p>We collect the information you choose to give us, such as your name, email address, company, and the details you include when you request a conversation or download the white paper. We also collect limited technical information automatically, such as browser type, device type, approximate location, and pages viewed.</p>
+      <h3>How we use it</h3>
+      <p>We use your information to respond to enquiries, to arrange and deliver advisory engagements, to send material you have asked for, and to understand how the site is used so we can improve it. We do not sell your personal information.</p>
+      <h3>Lawful basis</h3>
+      <p>Where the GDPR or similar law applies, we process personal information on the basis of your consent, our legitimate interest in responding to business enquiries, or the performance of a contract with you.</p>
+      <h3>Cookies and analytics</h3>
+      <p>This site may use cookies and analytics tools to measure traffic and improve performance. You can block or delete cookies in your browser settings; parts of the site may not work as intended if you do.</p>
+      <h3>Sharing</h3>
+      <p>We share personal information only with service providers who help us operate the site and communicate with you, and where required by law. Those providers act on our instructions.</p>
+      <h3>Retention</h3>
+      <p>We keep enquiry and engagement records for as long as needed for the purpose they were collected and to meet legal and professional obligations, then delete them.</p>
+      <h3>Confidentiality of client information</h3>
+      <p>Information shared during an advisory engagement is treated as confidential and is governed by the engagement agreement, not by this policy.</p>
+      <h3>Your rights</h3>
+      <p>Depending on where you live, you may have the right to access, correct, delete, or restrict use of your personal information, and to withdraw consent. To exercise any of these, contact us using the details below.</p>
+      <h3>Contact</h3>
+      <p>Privacy questions and requests can be sent to <a href="mailto:ronnie@ronniebarnard.com">ronnie@ronniebarnard.com</a>.</p>
+    </div>
+  </dialog>
 </footer>
 
 <script>
 (function(){
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---- mobile menu ---- */
-  var hdr = document.querySelector('header'), mb = hdr.querySelector('.menu-btn');
-  function setMenu(open){
-    hdr.classList.toggle('open', open);
-    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
-    mb.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-  }
-  mb.addEventListener('click', function(){ setMenu(!hdr.classList.contains('open')); });
-  hdr.querySelectorAll('.navlinks a').forEach(function(a){ a.addEventListener('click', function(){ setMenu(false); }); });
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setMenu(false); });
-  document.addEventListener('click', function(e){ if (!hdr.contains(e.target)) setMenu(false); });
 
   /* ---- toggles: accordions, cases, benefit cards, read-more ---- */
   document.addEventListener('click', function(e){
@@ -1324,13 +1362,6 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     });
     car.addEventListener('mouseenter', stop);
     car.addEventListener('mouseleave', start);
-    var vp = car.querySelector('.carousel-viewport'), sx = 0, sy = 0;
-    vp.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; sy = e.touches[0].clientY; stop(); }, {passive:true});
-    vp.addEventListener('touchend', function(e){
-      var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) (dx < 0 ? next : prev)();
-      start();
-    }, {passive:true});
     if (paused) car.classList.add('is-paused');
     render();
     /* start on slide 1 when the carousel scrolls into view, not from page load */
@@ -1401,43 +1432,74 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
   }, {threshold:0.5});
   document.querySelectorAll('[data-count]').forEach(function(el){ countObs.observe(el); });
 
-  /* ---- typing headlines with orange caret ---- */
-  function chunksOf(el){
-    var out = [];
-    Array.prototype.forEach.call(el.childNodes, function(n){
-      if (n.nodeType === 3){ out.push({tag:null, text:n.textContent}); }
-      else { out.push({tag:n.tagName.toLowerCase(), text:n.textContent}); }
+
+  /* ---- legal dialogs ---- */
+  document.querySelectorAll('[data-legal]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var d = document.getElementById('legal-' + btn.getAttribute('data-legal'));
+      if (d && typeof d.showModal === 'function') d.showModal();
+      else if (d) d.setAttribute('open','');
     });
-    return out;
-  }
-  function render(el, chunks, count){
-    var html = '', used = 0;
-    for (var i = 0; i < chunks.length; i++){
-      var c = chunks[i], left = count - used;
-      if (left <= 0) break;
-      var slice = c.text.slice(0, left);
-      var safe = slice.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-      html += c.tag ? '<' + c.tag + '>' + safe + '</' + c.tag + '>' : safe;
-      used += slice.length;
+  });
+  document.querySelectorAll('[data-legal-close]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var d = btn.closest('dialog');
+      if (d && typeof d.close === 'function') d.close(); else if (d) d.removeAttribute('open');
+    });
+  });
+  document.querySelectorAll('dialog.legal').forEach(function(d){
+    d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+  });
+
+  /* ---- typing headlines with orange caret ----
+     Every character is placed in the DOM up-front (hidden) so line breaking is
+     computed once against the FULL string. Characters are then revealed one by
+     one. Nothing reflows mid-animation or when the caret is removed. ---- */
+  function buildChars(el){
+    var full = el.textContent;
+    el.setAttribute('aria-label', full);
+    var cells = [];
+    function walk(src, dest){
+      Array.prototype.forEach.call(src.childNodes, function(n){
+        if (n.nodeType === 3){
+          n.textContent.split('').forEach(function(ch){
+            var sp = document.createElement('span');
+            sp.className = 'tch';
+            sp.textContent = ch;
+            dest.appendChild(sp);
+            cells.push(sp);
+          });
+        } else if (n.nodeType === 1){
+          var clone = document.createElement(n.tagName.toLowerCase());
+          dest.appendChild(clone);
+          walk(n, clone);
+        }
+      });
     }
-    el.innerHTML = html + '<span class="caret"></span>';
+    var frag = document.createDocumentFragment();
+    walk(el, frag);
+    el.innerHTML = '';
+    el.appendChild(frag);
+    var inner = document.createElement('span');
+    inner.setAttribute('aria-hidden', 'true');
+    while (el.firstChild) inner.appendChild(el.firstChild);
+    el.appendChild(inner);
+    return cells;
   }
   function typeIt(el){
-    var chunks = chunksOf(el);
-    var total = chunks.reduce(function(a, c){ return a + c.text.length; }, 0);
-    el.style.minHeight = el.offsetHeight + 'px';
+    var cells = buildChars(el);
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce || !cells.length){ el.classList.add('done'); return; }
+    var caret = document.createElement('span');
+    caret.className = 'caret';
+    el.appendChild(caret);
     var speed = el.tagName === 'H1' ? 26 : 17, i = 0;
-    render(el, chunks, 0);
     var timer = setInterval(function(){
+      if (i < cells.length) cells[i].style.visibility = 'visible';
       i += 1;
-      render(el, chunks, i);
-      if (i >= total){
+      if (i >= cells.length){
         clearInterval(timer);
-        setTimeout(function(){
-          var car = el.querySelector('.caret');
-          if (car) car.remove();
-          el.style.minHeight = '';
-        }, 1400);
+        setTimeout(function(){ if (caret.parentNode) caret.parentNode.removeChild(caret); }, 1400);
       }
     }, speed);
   }
