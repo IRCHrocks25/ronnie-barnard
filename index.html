@@ -106,7 +106,7 @@ header .wrap{max-width:min(1480px,calc(50vw + 590px))}
 @media (max-width:1040px){.navlinks{gap:0}.navlinks a{padding:9px 11px}}
 @media (max-width:1360px){.brand span{display:none}}
 @media (max-width:1200px){.nav .btn.ghost{display:none}}
-@media (max-width:900px){.navlinks{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:960px){.navlinks{display:none}.nav .btn{margin-left:auto}}
 /* ---- mobile menu ---- */
 .navtoggle{display:none;margin-left:14px;width:42px;height:42px;flex:none;border:1px solid rgba(255,255,255,.22);
   border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;flex-direction:column;align-items:center;
@@ -127,10 +127,10 @@ header .wrap{max-width:min(1480px,calc(50vw + 590px))}
 .mm-cta{display:flex;flex-direction:column;gap:12px}
 .mm-cta .btn{justify-content:center;font-size:15px;padding:15px 22px}
 body.menu-open{overflow:hidden}
-@media (max-width:900px){.navtoggle{display:inline-flex}}
-@media (min-width:901px){.mobilemenu{display:none}}
+@media (max-width:960px){.navtoggle{display:inline-flex}}
+@media (min-width:961px){.mobilemenu{display:none}}
 @media (max-width:620px){.brand img{height:78px}.nav{gap:12px;height:92px}.nav .btn.solid{padding:9px 15px;font-size:12px}}
-@media (max-width:360px){.brand img{height:70px}.nav .btn.solid .arw{display:none}}
+@media (max-width:360px){.brand img{height:70px}.nav .btn.solid{display:none}.navtoggle{margin-left:auto}}
 
 /* ---------- buttons ---------- */
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;font-size:13px;font-weight:500;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,background .2s,border-color .2s,color .2s,box-shadow .2s;white-space:nowrap}
@@ -171,8 +171,11 @@ h1 u{text-decoration:underline;text-decoration-thickness:3px;text-underline-offs
 .card.wide{grid-column:span 4;display:flex;gap:16px;align-items:flex-start}
 .card.wide .v{margin-top:0;font-size:14.5px;color:#aeaeb6}
 .card.wide .ico{width:34px;height:34px;border-radius:9px}
+.paper-card{display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:30px;align-items:center;padding:clamp(30px,4.2vw,48px)}
+.paper-card>div{min-width:0}
 @media (max-width:860px){.bento{grid-template-columns:repeat(2,1fr)}.card.wide{grid-column:span 2}}
 @media (max-width:460px){.bento{grid-template-columns:1fr}.card.wide{grid-column:span 1}}
+@media (max-width:760px){.paper-card{grid-template-columns:minmax(0,1fr);gap:18px;padding:clamp(22px,6vw,36px)}.paper-card>.btn{width:fit-content;max-width:100%;white-space:normal;justify-content:center;text-align:center}}
 /* combined intro: portrait + statement as one block */
 .cred-intro{display:grid;grid-template-columns:minmax(0,.84fr) minmax(0,1.16fr);gap:clamp(32px,5vw,68px);align-items:center}
 .cred-portrait{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line-soft);aspect-ratio:4/5;background:#0a0a0b;box-shadow:0 30px 80px rgba(0,0,0,.5)}
@@ -330,7 +333,8 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 .foot-col a:hover{color:var(--accent);padding-left:5px}
 .foot-col p{max-width:30ch;line-height:1.5}
 .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:clamp(40px,5vw,60px);padding-top:26px;border-top:1px solid var(--line-soft);color:var(--dim);font-size:12px;font-family:var(--mono)}
-@media (max-width:760px){.foot-top{grid-template-columns:1fr;gap:38px}.foot-cols{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.foot-name{flex-wrap:wrap}.foot-name img{height:56px}.foot-cols{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:760px){.foot-top{grid-template-columns:1fr;gap:38px}}
 @media (max-width:440px){.foot-cols{grid-template-columns:1fr}}
 
 /* ---------- light sections ---------- */
@@ -1048,7 +1052,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
 
       <p class="mono-note rv" style="margin-top:28px">Experience spots the pattern fast. Evidence earns the fix.</p>
 
-      <div class="card rv" id="paper" style="margin-top:34px;padding:clamp(30px,4.2vw,48px);display:grid;grid-template-columns:minmax(0,1.3fr) auto;gap:30px;align-items:center;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
+      <div class="card rv paper-card" id="paper" style="margin-top:34px;background:linear-gradient(120deg,var(--accent),var(--accent-hi));border-color:transparent">
         <div>
           <p style="font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:#180a00;margin:0 0 12px">Read the full method</p>
           <div class="k" style="font-size:clamp(1.4rem,2.7vw,2.05rem);max-width:32ch;margin-top:0;color:#160800">Technology Unlock Framework: Finding the Constraint Behind the Symptom</div>
@@ -1364,7 +1368,7 @@ footer{border-top:1px solid var(--line-soft);padding-block:clamp(50px,6vw,76px) 
     tog.addEventListener('click', function(){ setOpen(!menu.classList.contains('open')); });
     menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ setOpen(false); }); });
     document.addEventListener('keydown', function(e){ if (e.key === 'Escape') setOpen(false); });
-    var mq = window.matchMedia('(min-width:901px)');
+    var mq = window.matchMedia('(min-width:961px)');
     (mq.addEventListener ? mq.addEventListener.bind(mq,'change') : mq.addListener.bind(mq))(function(){ if (mq.matches) setOpen(false); });
   })();
 
